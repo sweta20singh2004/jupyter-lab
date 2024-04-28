@@ -1,0 +1,10 @@
+{
+    // Code Completion
+    // @jupyter-lsp/jupyterlab-lsp:completion
+    // LSP Completion settings.
+    // **************************************
+
+    // Continuous hinting
+    // Whether to enable continuous hinting (Hinterland mode). Requires enabling autocompletion in the other 'Code completion' settings
+    "continuousHinting": true
+}

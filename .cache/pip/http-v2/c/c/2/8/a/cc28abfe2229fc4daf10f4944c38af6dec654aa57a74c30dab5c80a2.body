@@ -1,0 +1,129 @@
+Metadata-Version: 2.1
+Name: hatch-jupyter-builder
+Version: 0.9.1
+Summary: A hatch plugin to help build Jupyter packages
+Project-URL: Documentation, https://github.com/jupyterlab/hatch-jupyter-builder#readme
+Project-URL: Issues, https://github.com/jupyterlab/hatch-jupyter-builder/issues
+Project-URL: Source, https://github.com/jupyterlab/hatch-jupyter-builder
+Author-email: Jupyter Development Team <jupyter@googlegroups.com>
+License: Copyright (c) 2022 Project Jupyter Contributors
+        All rights reserved.
+        
+        Redistribution and use in source and binary forms, with or without
+        modification, are permitted provided that the following conditions are met:
+        
+        1. Redistributions of source code must retain the above copyright notice, this
+           list of conditions and the following disclaimer.
+        
+        2. Redistributions in binary form must reproduce the above copyright notice,
+           this list of conditions and the following disclaimer in the documentation
+           and/or other materials provided with the distribution.
+        
+        3. Neither the name of the copyright holder nor the names of its
+           contributors may be used to endorse or promote products derived from
+           this software without specific prior written permission.
+        
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+        DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+        FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+        DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+        SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+        CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+        OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+License-File: LICENSE.txt
+Keywords: hatch,jupyter,jupyterlab
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.8
+Requires-Dist: hatchling>=1.17
+Provides-Extra: docs
+Requires-Dist: hatch-jupyter-builder; extra == 'docs'
+Requires-Dist: myst-parser; extra == 'docs'
+Requires-Dist: pydata-sphinx-theme; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints; extra == 'docs'
+Requires-Dist: sphinxcontrib-spelling; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: hatch; extra == 'test'
+Requires-Dist: pytest; extra == 'test'
+Requires-Dist: pytest-cov; extra == 'test'
+Requires-Dist: pytest-mock; extra == 'test'
+Requires-Dist: tomli; (python_version < '3.11') and extra == 'test'
+Requires-Dist: twine; extra == 'test'
+Description-Content-Type: text/markdown
+
+# hatch-jupyter-builder
+
+[![PyPI - Version](https://img.shields.io/pypi/v/hatch-jupyter-builder.svg)](https://pypi.org/project/hatch-jupyter-builder)
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+
+______________________________________________________________________
+
+This provides a [build hook](https://hatch.pypa.io/latest/config/build/#build-hooks) plugin for [Hatch](https://github.com/pypa/hatch) that adds a build step for use with Jupyter packages.
+
+**Table of Contents**
+
+- [Documentation](#documentation)
+- [Installation](#installation)
+- [License](#license)
+- [Usage and Configuration](#usage_and_configuration)
+- [Local Development](#local_development)
+
+## Documentation
+
+The full documentation is available on [Read The Docs](https://hatch-jupyter-builder.readthedocs.io/en/latest/).
+
+## Installation
+
+```console
+pip install hatch-jupyter-builder
+```
+
+## Local Development
+
+To test this package locally with another package, use the following:
+
+```toml
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder@file://<path_to_this_repo>"]
+```
+
+## Skipping the Build
+
+You can skip the build by setting the `SKIP_JUPYTER_BUILDER` environment
+variable.
+
+## Migration
+
+This library can be used to migrate from a `setuptools` based package to
+use `hatch_jupyter_builder`. It will attempt to migrate `jupyter-packaging`
+config as well, if present.
+
+To migrate, run the following:
+
+```bash
+python -m hatch_jupyter_builder.migrate .
+```
+
+The migration script will do most of the migration automatically, but
+will prompt you for anything it cannot do itself.
+
+To compare dist files with a reference checkout, run the following:
+
+```bash
+python -m hatch_jupyter_builder.compare_migration <source_dir> <target_dir> sdist
+```
+
+Use `wheel` to compare wheel file contents.
+
+See the [documentation for more information on migration](https://hatch-jupyter-builder.readthedocs.io/en/latest/source/how_to_guides/index.html) for more details.
+
+## License
+
+`hatch-jupyter-builder` is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.

@@ -1,0 +1,143 @@
+Metadata-Version: 2.1
+Name: amazon_codeguru_jupyterlab_extension
+Version: 1.1.1
+Summary: Security, code quality, and ML recommendations
+Project-URL: Homepage, https://github.com/aws/amazon-codeguru-jupyterlab-extension
+Project-URL: Bug Tracker, https://github.com/aws/amazon-codeguru-jupyterlab-extension/issues
+Project-URL: Repository, https://github.com/aws/amazon-codeguru-jupyterlab-extension.git
+License-File: LICENSE
+License-File: NOTICE
+Classifier: Framework :: Jupyter
+Classifier: Framework :: Jupyter :: JupyterLab
+Classifier: Framework :: Jupyter :: JupyterLab :: 3
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions
+Classifier: Framework :: Jupyter :: JupyterLab :: Extensions :: Prebuilt
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Requires-Python: >=3.7
+Requires-Dist: boto3>=1.26.162
+Requires-Dist: jupyterlab-lsp>=4.0.0
+Requires-Dist: python-lsp-server<=1.7.1
+Provides-Extra: dev
+Requires-Dist: build; extra == 'dev'
+Requires-Dist: hatch; extra == 'dev'
+Requires-Dist: twine; extra == 'dev'
+Provides-Extra: tests
+Requires-Dist: coverage; extra == 'tests'
+Requires-Dist: pytest; extra == 'tests'
+Description-Content-Type: text/markdown
+
+## Amazon CodeGuru JupyterLab Extension
+
+Amazon CodeGuru extension for [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) and [SageMaker Studio](https://aws.amazon.com/sagemaker/studio/).
+This extension runs scans on your notebook files and provides security recommendations and quality improvements to your code.
+
+## Requirements
+
+- JupyterLab >= 3.0
+
+## Install
+
+```sh
+pip install amazon_codeguru_jupyterlab_extension
+```
+
+## Uninstall
+
+```sh
+pip uninstall amazon_codeguru_jupyterlab_extension
+```
+
+## Development
+
+### Prerequisites
+
+Ensure the following dependencies are available in your environment.
+
+- Python >= 3.8
+- JupyterLab >= 3.0
+- NodeJS >= 18
+
+Alternatively, you can create a conda virtual environment with the following commands:
+
+```sh
+conda env update --file binder/environment.yml
+conda activate amazon-codeguru-extension-demo
+```
+
+### Manual Setup
+
+1. Install the Python package in development mode.
+
+```sh
+pip install -e .
+```
+
+2. Link the extension with JupyterLab.
+
+```sh
+jupyter labextension develop . --overwrite
+```
+
+3. Build the Typescript source.
+
+```sh
+jlpm build
+# or
+jlpm watch # automatically rebuild changes
+```
+
+4. Start the JupyterLab server
+
+```sh
+jupyter lab
+```
+
+### Quick Setup
+
+Run the following command to quickly build and install the extension.
+
+```sh
+python3 binder/postBuild
+```
+
+## Release
+
+This extension can be distributed as a Python package.
+First, install build dependencies:
+
+```sh
+pip install build twine hatch
+```
+
+Bump the version using `hatch`. By default this will create a tag.
+
+```sh
+hatch version <new-version>
+```
+
+To generate a new Python source package (`.tar.gz`) and the binary package (`.whl`) in the `dist/` directory, run the following command:
+
+```sh
+python -m build
+```
+
+Then to upload the package to PyPI, run the following command:
+
+```sh
+twine upload dist/*
+```
+
+## Security
+
+See [SECURITY](SECURITY.md#security-issue-notifications) for more information.
+
+## License
+
+This project is licensed under the Apache-2.0 License.

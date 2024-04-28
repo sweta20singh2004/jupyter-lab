@@ -1,0 +1,168 @@
+{
+    // Language Servers
+    // @jupyter-lsp/jupyterlab-lsp:plugin
+    // Language Server Protocol settings.
+    // **********************************
+
+    // Language Server
+    // Language-server specific configuration, keyed by implementation, e.g: 
+    // 
+    // pyls: {
+    //   serverSettings: {
+    //     pyls: {
+    //       plugins: {
+    //         pydocstyle: {
+    //           enabled: true
+    //         },
+    //         pyflakes: {
+    //           enabled: false
+    //         },
+    //         flake8: {
+    //           enabled: true
+    //         }
+    //       }
+    //     }
+    //   }
+    // }
+    // 
+    // Alternatively, using dotted naming convention:
+    // 
+    // pyls: {
+    //   serverSettings: {
+    //     "pyls.plugins.pydocstyle.enabled": true,
+    //     "pyls.plugins.pyflakes.enabled": false,
+    //     "pyls.plugins.flake8.enabled": true
+    //   }
+    // }
+    "language_servers": {
+        "julia-language-server": {
+            "priority": 50,
+            "serverSettings": {
+                "julia.lint.run": true,
+                "julia.lint.missingrefs": "none",
+                "julia.lint.disabledDirs": [
+                    "docs",
+                    "test"
+                ],
+                "julia.lint.call": true,
+                "julia.lint.iter": true,
+                "julia.lint.nothingcomp": true,
+                "julia.lint.constif": true,
+                "julia.lint.lazy": true,
+                "julia.lint.datadecl": true,
+                "julia.lint.typeparam": true,
+                "julia.lint.modname": true,
+                "julia.lint.pirates": true,
+                "julia.lint.useoffuncargs": true,
+                "julia.completionmode": "qualify"
+            },
+            "configuration": {
+                "julia.lint.run": true,
+                "julia.lint.missingrefs": "none",
+                "julia.lint.disabledDirs": [
+                    "docs",
+                    "test"
+                ],
+                "julia.lint.call": true,
+                "julia.lint.iter": true,
+                "julia.lint.nothingcomp": true,
+                "julia.lint.constif": true,
+                "julia.lint.lazy": true,
+                "julia.lint.datadecl": true,
+                "julia.lint.typeparam": true,
+                "julia.lint.modname": true,
+                "julia.lint.pirates": true,
+                "julia.lint.useoffuncargs": true,
+                "julia.completionmode": "qualify"
+            },
+            "rank": 50
+        },
+        "r-languageserver": {
+            "priority": 50,
+            "serverSettings": {
+                "r.lsp.debug": true,
+                "r.lsp.log_file": null,
+                "r.lsp.diagnostics": true,
+                "r.lsp.rich_documentation": true,
+                "r.lsp.snippet_support": true,
+                "r.lsp.max_completions": 200,
+                "r.lsp.lint_cache": false,
+                "r.lsp.link_file_size_limit": 16384
+            },
+            "configuration": {
+                "r.lsp.debug": true,
+                "r.lsp.log_file": null,
+                "r.lsp.diagnostics": true,
+                "r.lsp.rich_documentation": true,
+                "r.lsp.snippet_support": true,
+                "r.lsp.max_completions": 200,
+                "r.lsp.lint_cache": false,
+                "r.lsp.link_file_size_limit": 16384
+            },
+            "rank": 50
+        },
+        "texlab": {
+            "priority": 50,
+            "serverSettings": {
+                "rootDirectory": null,
+                "build.executable": "latexmk",
+                "build.args": [
+                    "-pdf",
+                    "-interaction=nonstopmode",
+                    "-synctex=1",
+                    "%f"
+                ],
+                "build.onSave": false,
+                "build.outputDirectory": ".",
+                "build.forwardSearchAfter": false,
+                "forwardSearch.executable": null,
+                "forwardSearch.args": [],
+                "chktex.onOpenAndSave": false,
+                "chktex.onEdit": false,
+                "diagnosticsDelay": 300,
+                "formatterLineLength": 80,
+                "latexFormatter": "latexindent",
+                "latexindent.local": null,
+                "latexindent.modifyLineBreaks": false
+            },
+            "configuration": {
+                "rootDirectory": null,
+                "build.executable": "latexmk",
+                "build.args": [
+                    "-pdf",
+                    "-interaction=nonstopmode",
+                    "-synctex=1",
+                    "%f"
+                ],
+                "build.onSave": false,
+                "build.outputDirectory": ".",
+                "build.forwardSearchAfter": false,
+                "forwardSearch.executable": null,
+                "forwardSearch.args": [],
+                "chktex.onOpenAndSave": false,
+                "chktex.onEdit": false,
+                "diagnosticsDelay": 300,
+                "formatterLineLength": 80,
+                "latexFormatter": "latexindent",
+                "latexindent.local": null,
+                "latexindent.modifyLineBreaks": false
+            },
+            "rank": 50
+        },
+        "sql-language-server": {
+            "serverSettings": {
+                "sqlLanguageServer.connections": [
+                    {
+                        "name": "@amzn/amazon_sagemaker_sql_editor language server schema",
+                        "adapter": "json",
+                        "filename": "/opt/amazon/sagemaker/user-data/autocomplete-schema/sql-language-server-schema.json",
+                        "projectPaths": [
+                            "."
+                        ],
+                        "ssh": null
+                    }
+                ]
+            }
+        }
+    }
+}
