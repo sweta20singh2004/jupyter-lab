@@ -3,8 +3,9 @@
     "useFuzzyFilter": true,
     "filterDirectories": true,
     "showLastModifiedColumn": true,
-    "showFileSizeColumn": false,
-    "showHiddenFiles": false,
+    "showFileSizeColumn": true,
+    "showHiddenFiles": true,
     "showFileCheckboxes": false,
-    "sortNotebooksFirst": false
+    "sortNotebooksFirst": false,
+    "showFullPath": false
 }

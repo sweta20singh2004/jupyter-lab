@@ -1,0 +1,13 @@
+{
+  "shell_port": 56355,
+  "iopub_port": 55805,
+  "stdin_port": 42825,
+  "control_port": 35881,
+  "hb_port": 39703,
+  "ip": "127.0.0.1",
+  "key": "5ff3a0d8-6c58266e5dbeacaf2f369b59",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "/home/jovyan/Vibgyor/Chapter1-pandas/SeriesDataStructure.ipynb"
+}
