@@ -1,0 +1,13 @@
+{
+  "shell_port": 48381,
+  "iopub_port": 54067,
+  "stdin_port": 52805,
+  "control_port": 36991,
+  "hb_port": 49341,
+  "ip": "127.0.0.1",
+  "key": "e2bf6784-35bbc57b03042407ca74d45c",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "/home/jovyan/chapter1-pandas1/Console 1"
+}

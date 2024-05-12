@@ -1,0 +1,13 @@
+{
+  "shell_port": 54761,
+  "iopub_port": 48725,
+  "stdin_port": 58041,
+  "control_port": 53449,
+  "hb_port": 50119,
+  "ip": "127.0.0.1",
+  "key": "72be660a-00e410e6cc7d76869b49c438",
+  "transport": "tcp",
+  "signature_scheme": "hmac-sha256",
+  "kernel_name": "python3",
+  "jupyter_session": "/home/jovyan/chapter1-pandas1/dataFrameDataStructure.ipynb"
+}
