@@ -5,3 +5,4 @@
 ## Includes Chapter wise solutions/practice to XII
 
 Chapter 01 - Expected to be completed @ Second week of may.
+Chapter 02 - begins Expected completion by third week of May.

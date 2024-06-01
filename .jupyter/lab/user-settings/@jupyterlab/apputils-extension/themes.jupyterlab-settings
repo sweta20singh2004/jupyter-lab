@@ -17,7 +17,7 @@
 
     // Selected Theme
     // Application-level visual styling theme. Ignored when Adaptive Theme is enabled.
-    "theme": "Catppuccin Mocha",
+    "theme": "Catppuccin Frappé",
 
     // Scrollbar Theming
     // Enable/disable styling of the application scrollbars
