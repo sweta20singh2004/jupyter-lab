@@ -9,4 +9,4 @@
 
 Chapter 01 - Expected to be completed @ Second week of may.
 Chapter 02 - begins Expected completion by third week of May.
-Chapter 03 - done mostly lil bit left.
+Chapter 03 - done mostly lil bit left 01
