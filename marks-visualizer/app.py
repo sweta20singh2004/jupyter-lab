@@ -50,7 +50,7 @@ def plot():
 
     marks = Marks.query.order_by(Marks.date).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data).sort_values(by='DATE')
 
     if plot_type == 'static':
         # Creating a static plot using Matplotlib
@@ -135,7 +135,7 @@ def update():
 
     marks = Marks.query.order_by(Marks.date).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data)
+    df = pd.DataFrame(data).sort_values(by='DATE')
     return render_template('update.html', data=df.to_dict('records'))
 
 @app.route('/delete', methods=['POST'])
