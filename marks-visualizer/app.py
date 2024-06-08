@@ -77,7 +77,7 @@ def plot():
         # Embed the result in the html output.
         data_img = base64.b64encode(buf.read()).decode('ascii')
         plot_html = f'<img src="data:image/png;base64,{data_img}"/>'
-
+    
     elif plot_type == 'interactive':
         # Setting the Plotly theme
         if theme == 'dark':
@@ -86,11 +86,11 @@ def plot():
             pio.templates.default = "plotly_white"
 
         # Creating an interactive plot using Plotly
-        fig = px.line(df, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'],
+        fig = px.line(df, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'], 
                       labels={'value': 'Marks', 'variable': 'Subjects'}, title='Marks in Different Subjects Over Time')
         fig.update_layout(legend_title_text='Subjects')
         plot_html = fig.to_html(full_html=False)
-
+    
     return render_template('plot.html', plot_html=plot_html, data=df.to_html(index=False))
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -99,7 +99,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         # Check credentials (hardcoded for simplicity)
-        if username == 'hanisntsolo' and password == 'zaq12wsx':
+        if username == 'admin' and password == 'password':
             session['logged_in'] = True
             return redirect(url_for('update'))
         else:
@@ -129,7 +129,7 @@ def update():
         else:
             new_mark = Marks(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, english=new_english, ip=new_ip)
             db.session.add(new_mark)
-
+        
         db.session.commit()
         return redirect(url_for('index'))
 
@@ -157,5 +157,6 @@ def logout():
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    db.create_all()
+    with app.app_context():
+        db.create_all()
     app.run(host='0.0.0.0', port=5007)
