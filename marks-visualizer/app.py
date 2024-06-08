@@ -76,7 +76,7 @@ def login():
         username = request.form['username']
         password = request.form['password']
         # Check credentials (hardcoded for simplicity)
-        if username == 'admin' and password == 'password':
+        if username == 'hanisntsolo' and password == 'hanisntsolo@admin':
             session['logged_in'] = True
             return redirect(url_for('update'))
         else:
