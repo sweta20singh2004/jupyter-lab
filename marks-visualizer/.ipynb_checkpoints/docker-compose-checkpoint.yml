@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   flask_app:
-    container_name: marks_container
     build: .
+    restart: always
+    container_name: marks_container
     ports:
       - "5007:5007"
