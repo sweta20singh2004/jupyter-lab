@@ -1,3 +1,4 @@
 Flask
 matplotlib
 pandas
+plotly
