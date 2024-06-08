@@ -14,6 +14,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app.py app.py
 COPY templates/ templates/
 
+# Ensure the directory for the database file exists
+RUN mkdir -p /app/marks_data
+
 # Expose the port the app runs on
 EXPOSE 5007
 
