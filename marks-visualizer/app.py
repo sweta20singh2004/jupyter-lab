@@ -48,9 +48,9 @@ def plot():
     plot_type = request.form['plot_type']
     theme = request.form['theme']
 
-    marks = Marks.query.order_by(Marks.date).all()
+    marks = Marks.query.order_by(Marks.date.desc()).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE')
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
 
     if plot_type == 'static':
         # Creating a static plot using Matplotlib
@@ -133,9 +133,9 @@ def update():
         db.session.commit()
         return redirect(url_for('index'))
 
-    marks = Marks.query.order_by(Marks.date).all()
+    marks = Marks.query.order_by(Marks.date.desc()).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=True)
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
     return render_template('update.html', data=df.to_dict('records'))
 
 @app.route('/delete', methods=['POST'])
