@@ -28,6 +28,38 @@
     <br>
     <input type="submit" value="Update">
 </form>
+
+<h2>Delete Record</h2>
+<form action="/delete" method="post">
+    <label for="delete_date">Date:</label>
+    <input type="date" id="delete_date" name="date" required>
+    <br>
+    <input type="submit" value="Delete">
+</form>
+
 <br>
 <a href="/logout">Logout</a>
-</
+<br>
+<h2>Current Data</h2>
+<table border="1">
+    <tr>
+        <th>Date</th>
+        <th>Physics</th>
+        <th>Chemistry</th>
+        <th>Maths</th>
+        <th>English</th>
+        <th>IP</th>
+    </tr>
+    {% for record in data %}
+    <tr>
+        <td>{{ record['DATE'] }}</td>
+        <td>{{ record['PHYSICS'] }}</td>
+        <td>{{ record['CHEMISTRY'] }}</td>
+        <td>{{ record['MATHS'] }}</td>
+        <td>{{ record['ENGLISH'] }}</td>
+        <td>{{ record['IP'] }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

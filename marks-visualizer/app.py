@@ -89,27 +89,40 @@ def update():
         return redirect(url_for('login'))
 
     if request.method == 'POST':
-        new_date = request.form['date']
+        new_date = pd.to_datetime(request.form['date'])
         new_physics = int(request.form['physics'])
         new_chemistry = int(request.form['chemistry'])
         new_maths = int(request.form['maths'])
         new_english = int(request.form['english'])
         new_ip = int(request.form['ip'])
 
-        # Add new data
-        new_data = {'DATE': pd.to_datetime([new_date]),
-                    'PHYSICS': [new_physics],
-                    'CHEMISTRY': [new_chemistry],
-                    'MATHS': [new_maths],
-                    'ENGLISH': [new_english],
-                    'IP': [new_ip]}
-        new_df = pd.DataFrame(new_data)
-        global df
-        df = pd.concat([df, new_df]).sort_values(by='DATE')
+        # Check if the date already exists
+        if new_date in df['DATE'].values:
+            df.loc[df['DATE'] == new_date, ['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP']] = [new_physics, new_chemistry, new_maths, new_english, new_ip]
+        else:
+            # Add new data
+            new_data = {'DATE': new_date,
+                        'PHYSICS': new_physics,
+                        'CHEMISTRY': new_chemistry,
+                        'MATHS': new_maths,
+                        'ENGLISH': new_english,
+                        'IP': new_ip}
+            df = pd.concat([df, pd.DataFrame([new_data])]).sort_values(by='DATE')
 
         return redirect(url_for('index'))
 
-    return render_template('update.html')
+    return render_template('update.html', data=df.to_dict('records'))
+
+@app.route('/delete', methods=['POST'])
+def delete():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
+    date_to_delete = pd.to_datetime(request.form['date'])
+    global df
+    df = df[df['DATE'] != date_to_delete]
+
+    return redirect(url_for('update'))
 
 @app.route('/logout')
 def logout():
