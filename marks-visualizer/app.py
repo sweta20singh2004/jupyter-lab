@@ -135,7 +135,7 @@ def update():
 
     marks = Marks.query.order_by(Marks.date).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=True)
     return render_template('update.html', data=df.to_dict('records'))
 
 @app.route('/delete', methods=['POST'])
