@@ -1,4 +1,5 @@
 Flask
 matplotlib
-pandas
 plotly
+pandas
+Flask-SQLAlchemy

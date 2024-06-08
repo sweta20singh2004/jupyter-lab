@@ -7,3 +7,5 @@ services:
     container_name: marks_container
     ports:
       - "5007:5007"
+    volumes:
+      - ${DOCKER_DATA}/marks_db:/app/marks_data
