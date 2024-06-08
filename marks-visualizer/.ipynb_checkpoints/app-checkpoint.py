@@ -91,7 +91,7 @@ def plot():
         fig.update_layout(legend_title_text='Subjects')
         plot_html = fig.to_html(full_html=False)
     
-    return render_template('plot.html', plot_html=plot_html, data=df.to_html(index=False))
+    return render_template('plot.html', plot_html=plot_html, data=df.to_dict('records'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
