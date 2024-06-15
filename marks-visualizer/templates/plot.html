@@ -8,7 +8,8 @@
 <body>
     <h1>Marks in Different Subjects Over Time</h1>
     <div>{{ plot_html | safe }}</div>
-    <div>{{ plot_html | safe }}</div>
+    <h2>Marks in Different Subjects CBSE</h2>
+    <div>{{ school_plot_html | safe }}</div>
     <h2>School Marks Gained Overtime</h2>
     <table border="1">
         <tr>
@@ -30,6 +31,8 @@
         </tr>
         {% endfor %}
     </table>
+    <h2>JEE/Mains-Advance Records</h2>
+    <div>{{ jee_plot_html | safe }}</div>
     <h2>JEE/Advance Test Marks Gained Overtime</h2>
     <table border="1">
         <tr>
