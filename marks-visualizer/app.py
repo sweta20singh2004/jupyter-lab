@@ -20,6 +20,7 @@ if not os.path.exists(db_dir):
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_dir}/marks.db'
 db = SQLAlchemy(app)
 
+# 
 class Marks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False, unique=True)
