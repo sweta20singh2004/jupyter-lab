@@ -63,6 +63,12 @@ class JEEMarks(db.Model):
 def index():
     return render_template('index.html')
 
+@app.route('/admin')
+def admin():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+    return render_template('admin.html')
+
 @app.route('/plot', methods=['POST'])
 def plot():
     plot_type = request.form['plot_type']
@@ -147,7 +153,7 @@ def login():
         # Check credentials (hardcoded for simplicity)
         if username == 'hanisntsolo' and password == 'zaq12wsx':
             session['logged_in'] = True
-            return redirect(url_for('update'))
+            return redirect(url_for('admin'))
         else:
             return "Invalid credentials"
     return render_template('login.html')

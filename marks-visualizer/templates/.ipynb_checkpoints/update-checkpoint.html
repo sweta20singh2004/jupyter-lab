@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Data</title>
+    <title>Update CBSE Data</title>
 </head>
 <body>
-    <h1>Update Data</h1>
+    <h1>Update CBSE Data</h1>
     <form action="/update" method="post">
         <label for="date">Date:</label>
         <input type="date" id="date" name="date" required>
@@ -29,18 +29,8 @@
         <input type="submit" value="Update">
     </form>
 
-    <h2>Delete Record</h2>
-    <form action="/delete" method="post">
-        <label for="delete_date">Date:</label>
-        <input type="date" id="delete_date" name="date" required>
-        <br>
-        <input type="submit" value="Delete">
-    </form>
     
-    <br>
-    <a href="/logout">Logout</a>
-    <br>
-    <h2>Current Data</h2>
+    <h2>Current CBSE Data</h2>
     <table border="1">
         <tr>
             <th>Date</th>
@@ -61,5 +51,17 @@
         </tr>
         {% endfor %}
     </table>
+    
+    <h2>Delete CBSE Record</h2>
+    <form action="/delete" method="post">
+        <label for="delete_date">Date to delete:</label>
+        <input type="date" id="delete_date" name="date" required>
+        <br>
+        <input type="submit" value="Delete">
+    </form>
+    
+    <br>
+    <a href="/logout">Logout</a>
+    <br>
 </body>
 </html>
