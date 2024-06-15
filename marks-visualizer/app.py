@@ -77,41 +77,53 @@ def plot():
     # Fetch and sort school marks data
     school_marks = Marks.query.order_by(Marks.date.desc()).all()
     school_data = [mark.to_dict() for mark in school_marks]
-    df_school = pd.DataFrame(school_data).sort_values(by='DATE', ascending=False)
+    df_school = pd.DataFrame(school_data).sort_values(by='DATE', ascending=False) if school_data else pd.DataFrame()
 
     # Fetch and sort jee/main advance marks data
     jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
     jee_data = [mark.to_dict() for mark in jee_marks]
-    df_jee = pd.DataFrame(jee_data).sort_values(by='DATE', ascending=False)
+    df_jee = pd.DataFrame(jee_data).sort_values(by='DATE', ascending=False) if jee_data else pd.DataFrame()
+
+    plot_html = ""
+    school_plot_html = ""
+    jee_plot_html = ""
 
     if plot_type == 'static':
         # Creating a static plot using Matplotlib
         fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 14))
 
-        # School marks plot
-        ax1.plot(df_school['DATE'], df_school['PHYSICS'], marker='o', label='PHYSICS')
-        ax1.plot(df_school['DATE'], df_school['CHEMISTRY'], marker='o', label='CHEMISTRY')
-        ax1.plot(df_school['DATE'], df_school['MATHS'], marker='o', label='MATHS')
-        ax1.plot(df_school['DATE'], df_school['ENGLISH'], marker='o', label='ENGLISH')
-        ax1.plot(df_school['DATE'], df_school['IP'], marker='o', label='IP')
-        ax1.set_xlabel('Date')
-        ax1.set_ylabel('Marks')
-        ax1.set_title('School Marks in Different Subjects Over Time')
-        ax1.legend()
-        ax1.grid(True)
-        ax1.tick_params(axis='x', rotation=45)
+        if not df_school.empty:
+            # School marks plot
+            ax1.plot(df_school['DATE'], df_school['PHYSICS'], marker='o', label='PHYSICS')
+            ax1.plot(df_school['DATE'], df_school['CHEMISTRY'], marker='o', label='CHEMISTRY')
+            ax1.plot(df_school['DATE'], df_school['MATHS'], marker='o', label='MATHS')
+            ax1.plot(df_school['DATE'], df_school['ENGLISH'], marker='o', label='ENGLISH')
+            ax1.plot(df_school['DATE'], df_school['IP'], marker='o', label='IP')
+            ax1.set_xlabel('Date')
+            ax1.set_ylabel('Marks')
+            ax1.set_title('School Marks in Different Subjects Over Time')
+            ax1.legend()
+            ax1.grid(True)
+            ax1.tick_params(axis='x', rotation=45)
+        else:
+            ax1.set_title('No School Marks Data Available')
+            ax1.axis('off')
 
-        # JEE marks plot
-        ax2.plot(df_jee['DATE'], df_jee['PHYSICS'], marker='o', label='PHYSICS')
-        ax2.plot(df_jee['DATE'], df_jee['CHEMISTRY'], marker='o', label='CHEMISTRY')
-        ax2.plot(df_jee['DATE'], df_jee['MATHS'], marker='o', label='MATHS')
-        ax2.plot(df_jee['DATE'], df_jee['TOTAL'], marker='o', label='TOTAL')
-        ax2.set_xlabel('Date')
-        ax2.set_ylabel('Marks')
-        ax2.set_title('JEE/Advance Test Marks Over Time')
-        ax2.legend()
-        ax2.grid(True)
-        ax2.tick_params(axis='x', rotation=45)
+        if not df_jee.empty:
+            # JEE marks plot
+            ax2.plot(df_jee['DATE'], df_jee['PHYSICS'], marker='o', label='PHYSICS')
+            ax2.plot(df_jee['DATE'], df_jee['CHEMISTRY'], marker='o', label='CHEMISTRY')
+            ax2.plot(df_jee['DATE'], df_jee['MATHS'], marker='o', label='MATHS')
+            ax2.plot(df_jee['DATE'], df_jee['TOTAL'], marker='o', label='TOTAL')
+            ax2.set_xlabel('Date')
+            ax2.set_ylabel('Marks')
+            ax2.set_title('JEE/Advance Test Marks Over Time')
+            ax2.legend()
+            ax2.grid(True)
+            ax2.tick_params(axis='x', rotation=45)
+        else:
+            ax2.set_title('No JEE/Advance Test Marks Data Available')
+            ax2.axis('off')
 
         plt.tight_layout()
 
@@ -131,17 +143,21 @@ def plot():
         else:
             pio.templates.default = "plotly_white"
 
-        # Creating an interactive plot using Plotly for school marks
-        fig_school = px.line(df_school, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'], 
-                             labels={'value': 'Marks', 'variable': 'Subjects'}, title='School Marks in Different Subjects Over Time')
-        fig_school.update_layout(legend_title_text='Subjects')
-        school_plot_html = fig_school.to_html(full_html=False)
+        if not df_school.empty:
+            # Creating an interactive plot using Plotly for school marks
+            fig_school = px.line(df_school, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'], 
+                                 labels={'value': 'Marks', 'variable': 'Subjects'}, title='School Marks in Different Subjects Over Time')
+            fig_school.update_layout(legend_title_text='Subjects')
+            school_plot_html = fig_school.to_html(full_html=False)
 
-        # Creating an interactive plot using Plotly for JEE marks
-        fig_jee = px.line(df_jee, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'TOTAL'], 
-                          labels={'value': 'Marks', 'variable': 'Subjects'}, title='JEE/Advance Test Marks Over Time')
-        fig_jee.update_layout(legend_title_text='Subjects')
-        jee_plot_html = fig_jee.to_html(full_html=False)
+        if not df_jee.empty:
+            # Creating an interactive plot using Plotly for JEE marks
+            fig_jee = px.line(df_jee, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'TOTAL'], 
+                              labels={'value': 'Marks', 'variable': 'Subjects'}, title='JEE/Advance Test Marks Over Time')
+            fig_jee.update_layout(legend_title_text='Subjects')
+            jee_plot_html = fig_jee.to_html(full_html=False)
+        
+        plot_html = school_plot_html + jee_plot_html
     
     return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'))
 
