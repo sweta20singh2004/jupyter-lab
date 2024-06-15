@@ -20,6 +20,7 @@ if not os.path.exists(db_dir):
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_dir}/marks.db'
 db = SQLAlchemy(app)
 
+# Marks model to store CBSE Score in Database
 class Marks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False, unique=True)
@@ -38,35 +39,80 @@ class Marks(db.Model):
             'ENGLISH': self.english,
             'IP': self.ip
         }
+        
+# Marks model to store JEE main/Advanced Score in Database
+class JEEMarks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False, unique=True)
+    physics = db.Column(db.Integer, nullable=False)
+    chemistry = db.Column(db.Integer, nullable=False)
+    maths = db.Column(db.Integer, nullable=False)
+    total = db.Column(db.Integer, nullable=False)
+
+    def to_dict(self):
+        return {
+            'DATE': self.date,
+            'PHYSICS': self.physics,
+            'CHEMISTRY': self.chemistry,
+            'MATHS': self.maths,
+            'TOTAL': self.total
+        }
+
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/admin')
+def admin():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+    return render_template('admin.html')
+
 @app.route('/plot', methods=['POST'])
 def plot():
     plot_type = request.form['plot_type']
     theme = request.form['theme']
+    
+    # Fetch and sort school marks data
+    school_marks = Marks.query.order_by(Marks.date.desc()).all()
+    school_data = [mark.to_dict() for mark in school_marks]
+    df_school = pd.DataFrame(school_data).sort_values(by='DATE', ascending=False)
 
-    marks = Marks.query.order_by(Marks.date.desc()).all()
-    data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
+    # Fetch and sort jee/main advance marks data
+    jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
+    jee_data = [mark.to_dict() for mark in jee_marks]
+    df_jee = pd.DataFrame(jee_data).sort_values(by='DATE', ascending=False)
 
     if plot_type == 'static':
         # Creating a static plot using Matplotlib
-        fig, ax = plt.subplots(figsize=(14, 7))
-        ax.plot(df['DATE'], df['PHYSICS'], marker='o', label='PHYSICS')
-        ax.plot(df['DATE'], df['CHEMISTRY'], marker='o', label='CHEMISTRY')
-        ax.plot(df['DATE'], df['MATHS'], marker='o', label='MATHS')
-        ax.plot(df['DATE'], df['ENGLISH'], marker='o', label='ENGLISH')
-        ax.plot(df['DATE'], df['IP'], marker='o', label='IP')
+        fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 14))
 
-        ax.set_xlabel('Date')
-        ax.set_ylabel('Marks')
-        ax.set_title('Marks in Different Subjects Over Time')
-        ax.legend()
-        ax.grid(True)
-        ax.tick_params(axis='x', rotation=45)
+        # School marks plot
+        ax1.plot(df_school['DATE'], df_school['PHYSICS'], marker='o', label='PHYSICS')
+        ax1.plot(df_school['DATE'], df_school['CHEMISTRY'], marker='o', label='CHEMISTRY')
+        ax1.plot(df_school['DATE'], df_school['MATHS'], marker='o', label='MATHS')
+        ax1.plot(df_school['DATE'], df_school['ENGLISH'], marker='o', label='ENGLISH')
+        ax1.plot(df_school['DATE'], df_school['IP'], marker='o', label='IP')
+        ax1.set_xlabel('Date')
+        ax1.set_ylabel('Marks')
+        ax1.set_title('School Marks in Different Subjects Over Time')
+        ax1.legend()
+        ax1.grid(True)
+        ax1.tick_params(axis='x', rotation=45)
+
+        # JEE marks plot
+        ax2.plot(df_jee['DATE'], df_jee['PHYSICS'], marker='o', label='PHYSICS')
+        ax2.plot(df_jee['DATE'], df_jee['CHEMISTRY'], marker='o', label='CHEMISTRY')
+        ax2.plot(df_jee['DATE'], df_jee['MATHS'], marker='o', label='MATHS')
+        ax2.plot(df_jee['DATE'], df_jee['TOTAL'], marker='o', label='TOTAL')
+        ax2.set_xlabel('Date')
+        ax2.set_ylabel('Marks')
+        ax2.set_title('JEE/Advance Test Marks Over Time')
+        ax2.legend()
+        ax2.grid(True)
+        ax2.tick_params(axis='x', rotation=45)
+
         plt.tight_layout()
 
         # Save it to a temporary buffer
@@ -85,13 +131,19 @@ def plot():
         else:
             pio.templates.default = "plotly_white"
 
-        # Creating an interactive plot using Plotly
-        fig = px.line(df, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'], 
-                      labels={'value': 'Marks', 'variable': 'Subjects'}, title='Marks in Different Subjects Over Time')
-        fig.update_layout(legend_title_text='Subjects')
-        plot_html = fig.to_html(full_html=False)
+        # Creating an interactive plot using Plotly for school marks
+        fig_school = px.line(df_school, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'ENGLISH', 'IP'], 
+                             labels={'value': 'Marks', 'variable': 'Subjects'}, title='School Marks in Different Subjects Over Time')
+        fig_school.update_layout(legend_title_text='Subjects')
+        school_plot_html = fig_school.to_html(full_html=False)
+
+        # Creating an interactive plot using Plotly for JEE marks
+        fig_jee = px.line(df_jee, x='DATE', y=['PHYSICS', 'CHEMISTRY', 'MATHS', 'TOTAL'], 
+                          labels={'value': 'Marks', 'variable': 'Subjects'}, title='JEE/Advance Test Marks Over Time')
+        fig_jee.update_layout(legend_title_text='Subjects')
+        jee_plot_html = fig_jee.to_html(full_html=False)
     
-    return render_template('plot.html', plot_html=plot_html, data=df.to_dict('records'))
+    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -99,9 +151,9 @@ def login():
         username = request.form['username']
         password = request.form['password']
         # Check credentials (hardcoded for simplicity)
-        if username == 'admin' and password == 'password':
+        if username == 'hanisntsolo' and password == 'zaq12wsx':
             session['logged_in'] = True
-            return redirect(url_for('update'))
+            return redirect(url_for('admin'))
         else:
             return "Invalid credentials"
     return render_template('login.html')
@@ -131,13 +183,47 @@ def update():
             db.session.add(new_mark)
         
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('update'))
 
     marks = Marks.query.order_by(Marks.date.desc()).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
-    return render_template('update.html', data=df.to_dict('records'))
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('update.html', data=df.to_dict('records') if not df.empty else None)
 
+@app.route('/update_jee', methods=['GET', 'POST'])
+def update_jee():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+        new_physics = int(request.form['physics'])
+        new_chemistry = int(request.form['chemistry'])
+        new_maths = int(request.form['maths'])
+        new_total = new_physics + new_chemistry + new_maths
+
+        mark = JEEMarks.query.filter_by(date=new_date).first()
+        if mark:
+            mark.physics = new_physics
+            mark.chemistry = new_chemistry
+            mark.maths = new_maths
+            mark.total = new_total
+        else:
+            new_mark = JEEMarks(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, total=new_total)
+            db.session.add(new_mark)
+        
+        db.session.commit()
+        return redirect(url_for('update_jee'))
+
+    jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
+    data = [mark.to_dict() for mark in jee_marks]
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('update_jee.html', data=df.to_dict('records') if not df.empty else None)
+    
 @app.route('/delete', methods=['POST'])
 def delete():
     if 'logged_in' not in session:
@@ -150,6 +236,19 @@ def delete():
         db.session.commit()
 
     return redirect(url_for('update'))
+
+@app.route('/delete_jee', methods=['POST'])
+def delete_jee():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
+    date_to_delete = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+    mark = JEEMarks.query.filter_by(date=date_to_delete).first()
+    if mark:
+        db.session.delete(mark)
+        db.session.commit()
+
+    return redirect(url_for('update_jee'))
 
 @app.route('/logout')
 def logout():

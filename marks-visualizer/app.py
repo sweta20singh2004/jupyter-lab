@@ -183,12 +183,14 @@ def update():
             db.session.add(new_mark)
         
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('update'))
 
     marks = Marks.query.order_by(Marks.date.desc()).all()
     data = [mark.to_dict() for mark in marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
-    return render_template('update.html', data=df.to_dict('records'))
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('update.html', data=df.to_dict('records') if not df.empty else None)
 
 @app.route('/update_jee', methods=['GET', 'POST'])
 def update_jee():
@@ -213,12 +215,14 @@ def update_jee():
             db.session.add(new_mark)
         
         db.session.commit()
-        return redirect(url_for('index'))
+        return redirect(url_for('update_jee'))
 
     jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
     data = [mark.to_dict() for mark in jee_marks]
-    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
-    return render_template('update_jee.html', data=df.to_dict('records'))
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('update_jee.html', data=df.to_dict('records') if not df.empty else None)
     
 @app.route('/delete', methods=['POST'])
 def delete():

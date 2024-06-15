@@ -24,6 +24,7 @@
     </form>
 
     <h2>JEE/Advance Test Marks Data</h2>
+    {% if data %}
     <table border="1">
         <tr>
             <th>Date</th>
@@ -42,6 +43,9 @@
         </tr>
         {% endfor %}
     </table>
+    {% else %}
+        <p>No JEE/Advance test marks data available.</p>
+    {% endif %}
     <br>
     <form action="/delete_jee" method="post">
         <label for="date_delete">Date to delete:</label>

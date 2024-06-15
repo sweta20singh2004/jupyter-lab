@@ -31,6 +31,7 @@
 
     
     <h2>Current CBSE Data</h2>
+    {% if data %}
     <table border="1">
         <tr>
             <th>Date</th>
@@ -51,7 +52,9 @@
         </tr>
         {% endfor %}
     </table>
-    
+    {% else %}
+        <p>No JEE/Advance test marks data available.</p>
+    {% endif %}
     <h2>Delete CBSE Record</h2>
     <form action="/delete" method="post">
         <label for="delete_date">Date to delete:</label>
