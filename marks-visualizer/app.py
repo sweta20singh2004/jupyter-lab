@@ -20,7 +20,7 @@ if not os.path.exists(db_dir):
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_dir}/marks.db'
 db = SQLAlchemy(app)
 
-# 
+# Marks model to store CBSE Score in Database
 class Marks(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False, unique=True)
@@ -39,6 +39,25 @@ class Marks(db.Model):
             'ENGLISH': self.english,
             'IP': self.ip
         }
+        
+# Marks model to store JEE main/Advanced Score in Database
+class JEEMarks(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False, unique=True)
+    physics = db.Column(db.Integer, nullable=False)
+    chemistry = db.Column(db.Integer, nullable=False)
+    maths = db.Column(db.Integer, nullable=False)
+    total = db.Column(db.Integer, nullable=False)
+
+    def to_dict(self):
+        return {
+            'DATE': self.date,
+            'PHYSICS': self.physics,
+            'CHEMISTRY': self.chemistry,
+            'MATHS': self.maths,
+            'TOTAL': self.total
+        }
+
 
 @app.route('/')
 def index():
