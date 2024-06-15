@@ -184,6 +184,36 @@ def update():
     df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
     return render_template('update.html', data=df.to_dict('records'))
 
+@app.route('/update_jee', methods=['GET', 'POST'])
+def update_jee():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+        new_physics = int(request.form['physics'])
+        new_chemistry = int(request.form['chemistry'])
+        new_maths = int(request.form['maths'])
+        new_total = new_physics + new_chemistry + new_maths
+
+        mark = JEEMarks.query.filter_by(date=new_date).first()
+        if mark:
+            mark.physics = new_physics
+            mark.chemistry = new_chemistry
+            mark.maths = new_maths
+            mark.total = new_total
+        else:
+            new_mark = JEEMarks(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, total=new_total)
+            db.session.add(new_mark)
+        
+        db.session.commit()
+        return redirect(url_for('index'))
+
+    jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
+    data = [mark.to_dict() for mark in jee_marks]
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False)
+    return render_template('update_jee.html', data=df.to_dict('records'))
+    
 @app.route('/delete', methods=['POST'])
 def delete():
     if 'logged_in' not in session:
@@ -196,6 +226,19 @@ def delete():
         db.session.commit()
 
     return redirect(url_for('update'))
+
+@app.route('/delete_jee', methods=['POST'])
+def delete_jee():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+
+    date_to_delete = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+    mark = JEEMarks.query.filter_by(date=date_to_delete).first()
+    if mark:
+        db.session.delete(mark)
+        db.session.commit()
+
+    return redirect(url_for('update_jee'))
 
 @app.route('/logout')
 def logout():
