@@ -180,7 +180,7 @@ def plot():
         
         plot_html = school_plot_html + jee_plot_html
     
-    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'))
+    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), d)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

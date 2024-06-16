@@ -52,6 +52,29 @@
         </tr>
         {% endfor %}
     </table>
+    <h2>Daily Status Updates</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>English</th>
+            <th>Informatics Practices</th>
+            <th>General Notes</th>
+        </tr>
+        {% for record in jee_data %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['ENGLISH'] }}</td>
+            <td>{{ record['INFORMATICS PRACTICES'] }}</td>
+            <td>{{ record['GENERAL NOTES'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
     <br>
     <a href="/">Back to Choose Plot Type</a>
 </body>
