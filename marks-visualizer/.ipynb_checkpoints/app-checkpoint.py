@@ -199,18 +199,19 @@ def login():
         else:
             return "Invalid credentials"
     return render_template('login.html')
+    
 @app.route('/daily_update', methods=['GET', 'POST'])
 def daily_update():
     if 'logged_in' not in session:
         return redirect(url_for('login'))
     if request.method == 'POST':
         new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
-        new_physics = request.form['physics']
-        new_chemistry = request.form['chemistry']
-        new_maths = request.form['maths']
-        new_english = request.form['english']
-        new_ip = request.form['ip']
-        new_general_notes = request.form['general_notes']
+        new_physics = request.form['physics'] if request.form['physics'] else 'NA'
+        new_chemistry = request.form['chemistry'] if request.form['chemistry'] else 'NA'
+        new_maths = request.form['maths'] if request.form['maths'] else 'NA'
+        new_english = request.form['english'] if request.form['english'] else 'NA'
+        new_ip = request.form['ip'] if request.form['ip'] else 'NA'
+        new_general_notes = request.form['general_notes'] if request.form['general_notes'] else 'NA'
 
         mark = DailyUpdates.query.filter_by(date=new_date).first()
         if mark:
@@ -221,19 +222,27 @@ def daily_update():
             mark.ip = new_ip
             mark.general_notes = new_general_notes
         else:
-            new_daily_update = DailyUpdates(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, english=new_english, ip=new_ip, general_notes=new_general_notes)
+            new_daily_update = DailyUpdates(
+                date=new_date,
+                physics=new_physics,
+                chemistry=new_chemistry,
+                maths=new_maths,
+                english=new_english,
+                ip=new_ip,
+                general_notes=new_general_notes
+            )
             db.session.add(new_daily_update)
 
         db.session.commit()
         return redirect(url_for('daily_update'))
 
     daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all()
-    data = [updates.to_dict() for updates in daily_updates]
+    data = [update.to_dict() for update in daily_updates]
     if not data:
         data = None
     df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
-    return render_template('daily_update.html', daily_update=df.to_dict('records') if not df.empty else None)
-    
+    return render_template('daily_update.html', data=df.to_dict('records') if not df.empty else None)
+  
 @app.route('/update', methods=['GET', 'POST'])
 def update():
     if 'logged_in' not in session:
