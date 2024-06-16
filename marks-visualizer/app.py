@@ -57,6 +57,11 @@ class JEEMarks(db.Model):
             'MATHS': self.maths,
             'TOTAL': self.total
         }
+class DailyUpdates(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False, unique=True)
+    general_notes = db.Column(db.String, nullable=True)
+    physics = db.Column(db.String, nullable)
 
 
 @app.route('/')
