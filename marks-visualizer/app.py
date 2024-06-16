@@ -320,10 +320,19 @@ def delete_jee():
         db.session.commit()
 
     return redirect(url_for('update_jee'))
+    
 @app.route('/delete_daily_status', methods=['POST'])
 def delete_daily_status():
     if 'logged_in' not in session:
-        return redirect(url_for)
+        return redirect(url_for('login'))
+    date_to_delete = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+    daily_status = DailyUpdates.query.filter_by(date=date_to_delete).first()
+    if daily_status:
+        db.session.delete(daily_status)
+        db.session.commit()
+
+    return redirect(url_for('daily_update'))
+    
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
