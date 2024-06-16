@@ -75,7 +75,8 @@ class DailyUpdates(db.Model):
             'CHEMISTRY': self.chemistry,
             'MATHS': self.maths,
             'ENGLISH': self.english,
-            'INFORMATICS PRACTICES': self.ip
+            'INFORMATICS PRACTICES': self.ip,
+            'GENERAL NOTES': self.general_notes
         }
 
 
@@ -193,7 +194,29 @@ def login():
         else:
             return "Invalid credentials"
     return render_template('login.html')
+@app.route('/daily_update', methods=['GET', 'POST'])
+def daily_update():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+    if request.method == 'POST':
+        new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+        new_physics = request.form['physics']
+        new_chemistry = request.form['chemistry']
+        new_maths = request.form['maths']
+        new_english = request.form['english']
+        new_ip = request.form['ip']
+        new_general_notes = request.form['general_notes']
 
+        mark = DailyUpdates.query.filter_by(date=new_date).first()
+        if mark:
+            mark.physics = new_physics
+            mark.chemistry = new_chemistry
+            mark.maths = new_maths
+            mark.english = new_english
+            mark.ip = new_ip
+            mark.general_notes = new_general_notes
+        else:
+            new_daily_update = 
 @app.route('/update', methods=['GET', 'POST'])
 def update():
     if 'logged_in' not in session:
