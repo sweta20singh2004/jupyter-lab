@@ -216,7 +216,13 @@ def daily_update():
             mark.ip = new_ip
             mark.general_notes = new_general_notes
         else:
-            new_daily_update = 
+            new_daily_update = DailyUpdates(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, english=new_english, ip=new_ip, general_notes=new_general_notes)
+            db.session.add(new_daily_update)
+
+        db.session.commit()
+        return redirect(url_for('daily_update'))
+
+        daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all
 @app.route('/update', methods=['GET', 'POST'])
 def update():
     if 'logged_in' not in session:
