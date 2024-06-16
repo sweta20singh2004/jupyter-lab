@@ -108,7 +108,8 @@ def plot():
     # Fetch and sort daily updates
     daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all()
     daily_data = [update.to_dict() for update in daily_updates]
-    df_daily_updates = df
+    df_daily_updates = pd.DataFrame(daily_data).sort_values(by='DATE', ascending=False) if daily_data else pd.DataFrame()
+
     plot_html = ""
     school_plot_html = ""
     jee_plot_html = ""
@@ -184,7 +185,7 @@ def plot():
         
         plot_html = school_plot_html + jee_plot_html
     
-    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), daily_updates=)
+    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), daily_updates=df.daily_updates.to_dict('records'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
