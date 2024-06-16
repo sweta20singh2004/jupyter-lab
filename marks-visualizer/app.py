@@ -222,7 +222,13 @@ def daily_update():
         db.session.commit()
         return redirect(url_for('daily_update'))
 
-        daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all
+    daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all()
+    data = [updates.to_dict() for updates in daily_updates]
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('daily_update.html', data=df.to_dict('records') if not df.empty else None)
+    
 @app.route('/update', methods=['GET', 'POST'])
 def update():
     if 'logged_in' not in session:
@@ -314,7 +320,10 @@ def delete_jee():
         db.session.commit()
 
     return redirect(url_for('update_jee'))
-
+@app.route('/delete_daily_status', methods=['POST'])
+def delete_daily_status():
+    if 'logged_in' not in session:
+        return redirect(url_for)
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)
