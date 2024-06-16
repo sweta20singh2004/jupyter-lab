@@ -57,6 +57,27 @@ class JEEMarks(db.Model):
             'MATHS': self.maths,
             'TOTAL': self.total
         }
+# Model to store daily updates 
+class DailyUpdates(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    date = db.Column(db.Date, nullable=False, unique=True)
+    general_notes = db.Column(db.String, nullable=True)
+    physics = db.Column(db.String, nullable=True)
+    chemistry = db.Column(db.String, nullable=True)
+    maths = db.Column(db.String, nullable=True)
+    english = db.Column(db.String, nullable=True)
+    ip = db.Column(db.String, nullable=True)
+
+    def to_dict(self):
+        return {
+            'DATE': self.date,
+            'PHYSICS': self.physics,
+            'CHEMISTRY': self.chemistry,
+            'MATHS': self.maths,
+            'ENGLISH': self.english,
+            'INFORMATICS PRACTICES': self.ip,
+            'GENERAL NOTES': self.general_notes
+        }
 
 
 @app.route('/')
@@ -83,6 +104,11 @@ def plot():
     jee_marks = JEEMarks.query.order_by(JEEMarks.date.desc()).all()
     jee_data = [mark.to_dict() for mark in jee_marks]
     df_jee = pd.DataFrame(jee_data).sort_values(by='DATE', ascending=False) if jee_data else pd.DataFrame()
+
+    # Fetch and sort daily updates
+    daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all()
+    daily_data = [update.to_dict() for update in daily_updates]
+    df_daily_updates = pd.DataFrame(daily_data).sort_values(by='DATE', ascending=False) if daily_data else pd.DataFrame()
 
     plot_html = ""
     school_plot_html = ""
@@ -159,7 +185,7 @@ def plot():
         
         plot_html = school_plot_html + jee_plot_html
     
-    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'))
+    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), daily_updates=df_daily_updates.to_dict('records'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -173,7 +199,41 @@ def login():
         else:
             return "Invalid credentials"
     return render_template('login.html')
+@app.route('/daily_update', methods=['GET', 'POST'])
+def daily_update():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+    if request.method == 'POST':
+        new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+        new_physics = request.form['physics']
+        new_chemistry = request.form['chemistry']
+        new_maths = request.form['maths']
+        new_english = request.form['english']
+        new_ip = request.form['ip']
+        new_general_notes = request.form['general_notes']
 
+        mark = DailyUpdates.query.filter_by(date=new_date).first()
+        if mark:
+            mark.physics = new_physics
+            mark.chemistry = new_chemistry
+            mark.maths = new_maths
+            mark.english = new_english
+            mark.ip = new_ip
+            mark.general_notes = new_general_notes
+        else:
+            new_daily_update = DailyUpdates(date=new_date, physics=new_physics, chemistry=new_chemistry, maths=new_maths, english=new_english, ip=new_ip, general_notes=new_general_notes)
+            db.session.add(new_daily_update)
+
+        db.session.commit()
+        return redirect(url_for('daily_update'))
+
+    daily_updates = DailyUpdates.query.order_by(DailyUpdates.date.desc()).all()
+    data = [updates.to_dict() for updates in daily_updates]
+    if not data:
+        data = None
+    df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
+    return render_template('daily_update.html', data=df.to_dict('records') if not df.empty else None)
+    
 @app.route('/update', methods=['GET', 'POST'])
 def update():
     if 'logged_in' not in session:
@@ -265,7 +325,19 @@ def delete_jee():
         db.session.commit()
 
     return redirect(url_for('update_jee'))
+    
+@app.route('/delete_daily_status', methods=['POST'])
+def delete_daily_status():
+    if 'logged_in' not in session:
+        return redirect(url_for('login'))
+    date_to_delete = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
+    daily_status = DailyUpdates.query.filter_by(date=date_to_delete).first()
+    if daily_status:
+        db.session.delete(daily_status)
+        db.session.commit()
 
+    return redirect(url_for('daily_update'))
+    
 @app.route('/logout')
 def logout():
     session.pop('logged_in', None)

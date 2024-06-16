@@ -66,7 +66,7 @@ class DailyUpdates(db.Model):
     chemistry = db.Column(db.String, nullable=True)
     maths = db.Column(db.String, nullable=True)
     english = db.Column(db.String, nullable=True)
-    ip = db.Column(db.String, nullabel=True)
+    ip = db.Column(db.String, nullable=True)
 
     def to_dict(self):
         return {
@@ -185,7 +185,7 @@ def plot():
         
         plot_html = school_plot_html + jee_plot_html
     
-    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), daily_updates=df.daily_updates.to_dict('records'))
+    return render_template('plot.html', plot_html=plot_html, school_plot_html=school_plot_html, jee_plot_html=jee_plot_html, school_data=df_school.to_dict('records'), jee_data=df_jee.to_dict('records'), daily_updates=df_daily_updates.to_dict('records'))
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
