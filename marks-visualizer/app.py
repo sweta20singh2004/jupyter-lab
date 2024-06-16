@@ -232,7 +232,7 @@ def daily_update():
     if not data:
         data = None
     df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
-    return render_template('daily_update.html', data=df.to_dict('records') if not df.empty else None)
+    return render_template('daily_update.html', daily_update=df.to_dict('records') if not df.empty else None)
     
 @app.route('/update', methods=['GET', 'POST'])
 def update():

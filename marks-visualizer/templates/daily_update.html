@@ -12,22 +12,22 @@
         <input type="date" id="date" name="date" required>
         <br>
         <label for="physics">Physics:</label>
-        <input type="text" id="physics" name="physics" required>
+        <input type="text" id="physics" name="physics">
         <br>
         <label for="chemistry">Chemistry:</label>
-        <input type="text" id="chemistry" name="chemistry" required>
+        <input type="text" id="chemistry" name="chemistry">
         <br>
         <label for="maths">Maths:</label>
-        <input type="text" id="maths" name="maths" required>
+        <input type="text" id="maths" name="maths">
         <br>
         <label for="english">English:</label>
-        <input type="text" id="english" name="english" required>
+        <input type="text" id="english" name="english">
         <br>
         <label for="ip">Informatics Practices:</label>
-        <input type="text" id="ip" name="ip" required>
+        <input type="text" id="ip" name="ip">
         <br>
         <label for="general_notes">General Notes:</label>
-        <input type="general_notes" id="general_notes" name="general_notes" required>
+        <input type="text" id="general_notes" name="general_notes">
         <br>
         <input type="submit" value="Update">
     </form>
@@ -44,7 +44,7 @@
             <th>Informatics Practices</th>
             <th>General Notes</th>
         </tr>
-        {% for record in daily_updates %}
+        {% for record in data %}
         <tr>
             <td>{{ record['DATE'] }}</td>
             <td>{{ record['PHYSICS'] }}</td>
