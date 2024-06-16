@@ -1,5 +1,9 @@
-# Contains
-
+# Contains Following features
+###### 1. Sumita Arora Chapter wise exercises to XII Informatics Practices. 
+###### 2. Contains mysql setup to connect with running db instance using python sql-connector.
+###### 3. Dependency Management Just run dependencies.ipynb to start.
+###### 4. AutoCommit and Push is added to track latest changes with github.
+###### 5. Inrepository Marks visualizer which contains setup to 
 # Run dependencies.ipynb to start
 
 ### NOTE : 
