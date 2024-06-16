@@ -57,11 +57,26 @@ class JEEMarks(db.Model):
             'MATHS': self.maths,
             'TOTAL': self.total
         }
+# Model to store daily updates 
 class DailyUpdates(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     date = db.Column(db.Date, nullable=False, unique=True)
     general_notes = db.Column(db.String, nullable=True)
-    physics = db.Column(db.String, nullable)
+    physics = db.Column(db.String, nullable=True)
+    chemistry = db.Column(db.String, nullable=True)
+    maths = db.Column(db.String, nullable=True)
+    english = db.Column(db.String, nullable=True)
+    ip = db.Column(db.String, nullabel=True)
+
+    def to_dict(self):
+        return {
+            'DATE': self.date,
+            'PHYSICS': self.physics,
+            'CHEMISTRY': self.chemistry,
+            'MATHS': self.maths,
+            'ENGLISH': self.english,
+            'INFORMATICS PRACTICES': self.ip
+        }
 
 
 @app.route('/')
