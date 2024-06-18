@@ -215,12 +215,18 @@ def daily_update():
 
         mark = DailyUpdates.query.filter_by(date=new_date).first()
         if mark:
-            mark.physics = new_physics
-            mark.chemistry = new_chemistry
-            mark.maths = new_maths
-            mark.english = new_english
-            mark.ip = new_ip
-            mark.general_notes = new_general_notes
+            if mark.physics != new_physics:
+                mark.physics = new_physics
+            if mark.chemistry != new_chemistry:
+                mark.chemistry = new_chemistry
+            if mark.maths != new_maths:
+                mark.maths = new_maths
+            if mark.english != new_english:
+                mark.english = new_english
+            if mark.ip != new_ip:
+                mark.ip = new_ip
+            if mark.general_notes != new_general_notes:
+                mark.general_notes = new_general_notes
         else:
             new_daily_update = DailyUpdates(
                 date=new_date,
