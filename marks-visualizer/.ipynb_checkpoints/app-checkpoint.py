@@ -206,36 +206,36 @@ def daily_update():
         return redirect(url_for('login'))
     if request.method == 'POST':
         new_date = datetime.strptime(request.form['date'], '%Y-%m-%d').date()
-        new_physics = request.form['physics'] if request.form['physics'] else 'NA'
-        new_chemistry = request.form['chemistry'] if request.form['chemistry'] else 'NA'
-        new_maths = request.form['maths'] if request.form['maths'] else 'NA'
-        new_english = request.form['english'] if request.form['english'] else 'NA'
-        new_ip = request.form['ip'] if request.form['ip'] else 'NA'
-        new_general_notes = request.form['general_notes'] if request.form['general_notes'] else 'NA'
+        new_physics = request.form['physics']
+        new_chemistry = request.form['chemistry']
+        new_maths = request.form['maths']
+        new_english = request.form['english']
+        new_ip = request.form['ip']
+        new_general_notes = request.form['general_notes']
 
         mark = DailyUpdates.query.filter_by(date=new_date).first()
         if mark:
-            if mark.physics != new_physics:
+            if new_physics:
                 mark.physics = new_physics
-            if mark.chemistry != new_chemistry:
+            if new_chemistry:
                 mark.chemistry = new_chemistry
-            if mark.maths != new_maths:
+            if new_maths:
                 mark.maths = new_maths
-            if mark.english != new_english:
+            if new_english:
                 mark.english = new_english
-            if mark.ip != new_ip:
+            if new_ip:
                 mark.ip = new_ip
-            if mark.general_notes != new_general_notes:
+            if new_general_notes:
                 mark.general_notes = new_general_notes
         else:
             new_daily_update = DailyUpdates(
                 date=new_date,
-                physics=new_physics,
-                chemistry=new_chemistry,
-                maths=new_maths,
-                english=new_english,
-                ip=new_ip,
-                general_notes=new_general_notes
+                physics=new_physics if new_physics else 'NA',
+                chemistry=new_chemistry if new_chemistry else 'NA',
+                maths=new_maths if new_maths else 'NA',
+                english=new_english if new_english else 'NA',
+                ip=new_ip if new_ip else 'NA',
+                general_notes=new_general_notes if new_general_notes else 'NA'
             )
             db.session.add(new_daily_update)
 
@@ -248,6 +248,7 @@ def daily_update():
         data = None
     df = pd.DataFrame(data).sort_values(by='DATE', ascending=False) if data else pd.DataFrame()
     return render_template('daily_update.html', data=df.to_dict('records') if not df.empty else None)
+
   
 @app.route('/update', methods=['GET', 'POST'])
 def update():
