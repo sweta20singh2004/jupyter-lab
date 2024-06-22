@@ -5,6 +5,11 @@ services:
     build: .
     restart: always
     container_name: marks_container
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
     ports:
       - "5007:5007"
     volumes:
