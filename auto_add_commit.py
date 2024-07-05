@@ -4,15 +4,17 @@ import schedule
 import time
 from datetime import datetime
 from dotenv import load_dotenv
-
+# Load environment variables from a specified .env file
+load_dotenv(dotenv_path='/media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env')
 # Set your repository path
-AUTO_COMMIT_REPO_PATH = os.getenv('AUTO_COMMIT_REPO_PATH')
+AUTO_COMMIT_REPO_PATH = str(os.getenv('AUTO_COMMIT_REPO_PATH'))
 # Set your specific directory to add
-COMMIT_SPECIFIC_DIRECTORY = os.getenv('COMMIT_SPECIFIC_DIRECTORY')
+COMMIT_SPECIFIC_DIRECTORY = str(os.getenv('COMMIT_SPECIFIC_DIRECTORY'))
 # GitHub token and user/repo information
 GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
+
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
