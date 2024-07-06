@@ -202,8 +202,9 @@ def codeforces_submission_monitor():
                     time.sleep(sleep_seconds)
                 else:
                     sleep_seconds = 30
-                    failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}] : {pp(latest_submission)}"
+                    failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}]"
                     write_log(failure_log)
+                    pp(latest_submission)
                     color = map_rating_to_color(2101)
                     set_bulb_color(openapi, color)
                     time.sleep(sleep_seconds)
