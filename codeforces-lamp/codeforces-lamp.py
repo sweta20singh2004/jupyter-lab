@@ -187,6 +187,7 @@ def codeforces_submission_monitor():
             submission_id = latest_submission["id"]
             submission_timestamp = latest_submission["creationTimeSeconds"]
             if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
+                pp("New submission recorded :", submission_id)
                 # Process the submission and update bulb colorabs
                 verdict = latest_submission["verdict"]
                 process_submission(openapi)
