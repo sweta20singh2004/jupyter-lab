@@ -6,6 +6,7 @@ import string
 import time
 import requests
 from tuya_connector import TuyaOpenAPI
+from pprint import pp
 
 def initialize_tuya_api():
     access_id = os.getenv("TUYA_ACCESS_ID")
@@ -78,9 +79,9 @@ def codeforces_api_request(method, parameters):
     
     combined_parameters = '&'.join(f'{k}={v}' for k, v in parameters.items())
     full_url = f"{url}?{combined_parameters}"
-    pp(f"Parameters before :: {parameters}")  # For debugging
-    pp(f"New Combined Parameters are :: {combined_parameters}")  # For debugging
-    pp(f"Formed Request is as follows :: {full_url}")  # For debugging
+    # pp(f"Parameters before :: {parameters}")  # For debugging
+    # pp(f"New Combined Parameters are :: {combined_parameters}")  # For debugging
+    # pp(f"Formed Request is as follows :: {full_url}")  # For debugging
     response = requests.get(full_url)
     if response.status_code == 200:
         return response.json()
