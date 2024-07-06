@@ -6,6 +6,7 @@ import string
 import time
 import requests
 from tuya_connector import TuyaOpenAPI
+from datetime import datetime
 from pprint import pp
 
 def initialize_tuya_api():
@@ -48,7 +49,8 @@ load_dotenv(dotenv_path='/.env')
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
 def write_log(message):
-    print(message)
+    log_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [CODEFORCES_LAMP] : {message}"
+    print(log_message)
     return # When inside container.
     try:
         # Read the existing contents of the log file
