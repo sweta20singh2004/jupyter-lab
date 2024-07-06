@@ -41,7 +41,7 @@ def add_authorization_parameters(method, parameters, key, secret):
     parameters["apiSig"] = api_sig
 
 # Load environment variables from a specified .env file
-load_dotenv(dotenv_path='/media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env')
+load_dotenv(dotenv_path='/.env')
 
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
