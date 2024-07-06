@@ -11,14 +11,12 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code and templates into the container
-COPY app.py app.py
-COPY templates/ templates/
-
-# Ensure the directory for the database file exists
-RUN mkdir -p /app/marks_data
+COPY codeforces-lamp.py codeforces-lamp.py
+# Ensure the environment variables are sourced
+COPY /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env /.env
 
 # Expose the port the app runs on
-EXPOSE 5007
+EXPOSE 5008
 
 # Run the application
-CMD ["python", "app.py"]
+CMD ["python", "codeforces-lamp.py"]
