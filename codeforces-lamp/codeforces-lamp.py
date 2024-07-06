@@ -195,16 +195,19 @@ def codeforces_submission_monitor():
                 verdict = latest_submission["verdict"]
                 process_submission(openapi)
                 if verdict == "OK":
+                    sleep_seconds = 120
                     accepted_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict Accepted for submission : {submission_id}]"
                     write_log(accepted_log)
                     color = map_rating_to_color(1201)
                     set_bulb_color(openapi, color)
-                    time.sleep(120)
+                    time.sleep(sleep_seconds)
                 else:
-                    failure_log = f"{datetime.now().strftime('')}"
+                    sleep_seconds = 30
+                    failure_log = f"{datetime.now().strftime('%y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}] : {pp(latest_submission)}"
+                    write_log(failure_log)
                     color = map_rating_to_color(2101)
                     set_bulb_color(openapi, color)
-                    time.sleep(30)
+                    time.sleep(sleep_seconds)
                 #Update last processed submission timestamp or Idabs
                 last_submission_timestamp = submission_timestamp
                 last_submission_id = submission_id
