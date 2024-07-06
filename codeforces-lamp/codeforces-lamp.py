@@ -185,12 +185,12 @@ def codeforces_submission_monitor():
     openapi = initialize_tuya_api() # Set tupy api to be able to send instructions.
     while True:
         latest_submission = codeforces_monitor_all_submissions()
-        pp(latest_submission)
+        write_log(pp(latest_submission))
         if latest_submission:
             submission_id = latest_submission["id"]
             submission_timestamp = latest_submission["creationTimeSeconds"]
             if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
-                print("New submission recorded :", submission_id)
+                write_log("New submission recorded :", submission_id)
                 # Process the submission and update bulb colorabs
                 verdict = latest_submission["verdict"]
                 process_submission(openapi)
@@ -214,8 +214,9 @@ def codeforces_submission_monitor():
                     rating = user['rating']
                     color = map_rating_to_color(rating)
                     set_bulb_color(openapi, color)
-        
-        time.sleep(5) # Check for new submission every 5 seconds.
+        sleep_seconds = 5
+        sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds}]"            
+        time.sleep(sleep_seconds) # Check for new submission every 5 seconds.
                     
 def process_submission(openapi):
     color = map_rating_to_color(1901)
