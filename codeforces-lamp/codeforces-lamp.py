@@ -195,7 +195,7 @@ def codeforces_submission_monitor():
                 if verdict == "OK":
                     color = map_rating_to_color(1201)
                     set_bulb_color(openapi, color)
-                    time.sleep(60)
+                    time.sleep(120)
                 else:
                     color = map_rating_to_color(2101)
                     set_bulb_color(openapi, color)
