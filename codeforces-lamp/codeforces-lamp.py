@@ -195,10 +195,13 @@ def codeforces_submission_monitor():
                 verdict = latest_submission["verdict"]
                 process_submission(openapi)
                 if verdict == "OK":
+                    accepted_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict Accepted for submission : {submission_id}]"
+                    write_log(accepted_log)
                     color = map_rating_to_color(1201)
                     set_bulb_color(openapi, color)
                     time.sleep(120)
                 else:
+                    failure_log = f"{datetime.now().strftime('')}"
                     color = map_rating_to_color(2101)
                     set_bulb_color(openapi, color)
                     time.sleep(30)
@@ -214,6 +217,7 @@ def codeforces_submission_monitor():
                     rating = user['rating']
                     color = map_rating_to_color(rating)
                     set_bulb_color(openapi, color)
+                    
         sleep_seconds = 5
         sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds}]"            
         time.sleep(sleep_seconds) # Check for new submission every 5 seconds.
