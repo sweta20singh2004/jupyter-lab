@@ -47,6 +47,8 @@ load_dotenv(dotenv_path='/.env')
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
 def write_log(message):
+    print(message)
+    return # When inside container.
     try:
         # Read the existing contents of the log file
         if os.path.exists(LAB_LOG_FILE_PATH):
@@ -76,9 +78,9 @@ def codeforces_api_request(method, parameters):
     
     combined_parameters = '&'.join(f'{k}={v}' for k, v in parameters.items())
     full_url = f"{url}?{combined_parameters}"
-    # pp(f"Parameters before :: {parameters}")  # For debugging
-    # pp(f"New Combined Parameters are :: {combined_parameters}")  # For debugging
-    # pp(f"Formed Request is as follows :: {full_url}")  # For debugging
+    pp(f"Parameters before :: {parameters}")  # For debugging
+    pp(f"New Combined Parameters are :: {combined_parameters}")  # For debugging
+    pp(f"Formed Request is as follows :: {full_url}")  # For debugging
     response = requests.get(full_url)
     if response.status_code == 200:
         return response.json()
@@ -219,11 +221,6 @@ def process_submission(openapi):
         time.sleep(1)
         
 def main():
-    # pp(contest_status(1985, "hanisntsolo"))
-    # pp(contest_list())
-    # pp(recent_submissions(2))
-    # pp(user_status()) # Gives the status of recent submissions as well.
-    # codeforces_monitor_all_submissions()
     codeforces_submission_monitor()
     
 if __name__ == "__main__":
