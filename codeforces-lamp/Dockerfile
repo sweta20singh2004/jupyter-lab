@@ -13,7 +13,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the application code and templates into the container
 COPY codeforces-lamp.py codeforces-lamp.py
 # Ensure the environment variables are sourced
-COPY /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env /.env
 
 # Expose the port the app runs on
 EXPOSE 5008
