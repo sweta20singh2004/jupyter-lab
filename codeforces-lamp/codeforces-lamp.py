@@ -5,9 +5,15 @@ import random
 import string
 import time
 import requests
+import json
 from tuya_connector import TuyaOpenAPI
 from datetime import datetime
 from pprint import pp
+
+# Load environment variables from a specified .env file
+load_dotenv(dotenv_path='/.env')
+# Path to your log file
+LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
 def initialize_tuya_api():
     access_id = os.getenv("TUYA_ACCESS_ID")
@@ -41,12 +47,6 @@ def add_authorization_parameters(method, parameters, key, secret):
     api_sig = rand + calculate_sha512(api_sig_base)
     
     parameters["apiSig"] = api_sig
-
-# Load environment variables from a specified .env file
-load_dotenv(dotenv_path='/.env')
-
-# Path to your log file
-LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
 def write_log(message):
     log_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [CODEFORCES_LAMP] : {message}"
@@ -105,6 +105,18 @@ def map_rating_to_color(rating):
     else:
         return {"h": 0, "s": 1000, "v": 1000}    # Red
         
+def get_bulb_state(openapi):
+    bulb_id = os.getenv("TUYA_BULB_ID")
+    if not bulb_id:
+        raise ValueError("Tuya bulb ID must be set as an environment variable.")
+    
+    response = openapi.get(f"/v1.0/iot-03/devices/{bulb_id}/status")
+    if response.get("success"):
+        return response.get("result")
+    else:
+        print(f"Failed to get bulb state: {response.get('msg')}")
+        return None        
+        
 def set_bulb_color(openapi, color):
     bulb_id = os.getenv("TUYA_BULB_ID")
     if not bulb_id:
@@ -119,6 +131,30 @@ def set_bulb_color(openapi, color):
     }
     
     send_tuya_command(openapi, f"/v1.0/iot-03/devices/{bulb_id}/commands", commands)
+    
+def is_bulb_on(bulb_state):
+    for item in bulb_state:
+        if item['code'] == 'switch_led':
+            return item['value']
+    return None
+def is_bulb_on_and_color_is_blue(bulb_state):
+    # Initialize variables to check for switch state and color state
+    is_on = False
+    is_blue = False
+    
+    # Iterate over the bulb state to check for required conditions
+    for item in bulb_state:
+        if item['code'] == 'switch_led':
+            is_on = item['value']
+        if item['code'] == 'colour_data_v2':
+            color_state = item['value']
+            if isinstance(color_state, str):
+                color_state = json.loads(color_state)
+            if color_state.get('h') == 240:
+                is_blue = True
+    
+    # Return True only if the bulb is on and the color is blue
+    return is_on and is_blue
     
 def set_bulb_off(openapi):
     bulb_id = os.getenv("TUYA_BULB_ID")
@@ -189,46 +225,51 @@ def codeforces_submission_monitor():
             submission_id = latest_submission["id"]
             submission_timestamp = latest_submission["creationTimeSeconds"]
             bulb_state = get_bulb_state(openapi)
-            pp(bulb_state)
-            if bulb_state:
-                if any(state["code"] == "switch_led" and not state["value"] for state in bulb_state):
-                    write_log("Bulb is off, skipping automated control.")
-                    return
+            # Get state of the bulb if its off means it was turned off manually hence don't do anything.
             
-            if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
-                write_log(f"New submission recorded : {submission_id}")
-                # Process the submission and update bulb color
-                verdict = latest_submission["verdict"]
-                process_submission(openapi)
-                if verdict == "OK":
-                    sleep_seconds = 120
-                    accepted_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict Accepted for submission : {submission_id}]"
-                    write_log(accepted_log)
-                    color = map_rating_to_color(1201)
-                    set_bulb_color(openapi, color)
-                    time.sleep(sleep_seconds)
+            if is_bulb_on(bulb_state) == False:
+                sleep_seconds = 5
+                write_log(f"Bulb is off, skipping automated control. Sleeping for {sleep_seconds} seconds")
+                time.sleep(sleep_seconds)
+                continue # Continue with state checking 
+            # Check if the bulb is on and color is blue only then change and check state.
+            if is_bulb_on_and_color_is_blue(bulb_state):    
+                if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
+                    write_log(f"New submission recorded : {submission_id}")
+                    # Process the submission and update bulb color
+                    verdict = latest_submission["verdict"]
+                    process_submission(openapi)
+                    if verdict == "OK":
+                        sleep_seconds = 120
+                        accepted_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict Accepted for submission : {submission_id}]"
+                        write_log(accepted_log)
+                        color = map_rating_to_color(1201)
+                        set_bulb_color(openapi, color)
+                        time.sleep(sleep_seconds)
+                    else:
+                        sleep_seconds = 30
+                        failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}]"
+                        write_log(failure_log)
+                        pp(latest_submission)
+                        color = map_rating_to_color(2101)
+                        set_bulb_color(openapi, color)
+                        time.sleep(sleep_seconds)
+                    #Update last processed submission timestamp or Id
+                    last_submission_timestamp = submission_timestamp
+                    last_submission_id = submission_id
+                
                 else:
-                    sleep_seconds = 30
-                    failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}]"
-                    write_log(failure_log)
-                    pp(latest_submission)
-                    color = map_rating_to_color(2101)
-                    set_bulb_color(openapi, color)
-                    time.sleep(sleep_seconds)
-                #Update last processed submission timestamp or Id
-                last_submission_timestamp = submission_timestamp
-                last_submission_id = submission_id
-            
+                    #No new submission, default to profile color
+                    data = user_info()
+                    if data:
+                        user = data['result'][0]
+                        rating = user['rating']
+                        color = map_rating_to_color(rating)
+                        set_bulb_color(openapi, color)
             else:
-                #No new submission, default to profile color
-                data = user_info()
-                if data:
-                    user = data['result'][0]
-                    rating = user['rating']
-                    color = map_rating_to_color(rating)
-                    set_bulb_color(openapi, color)
+                write_log("Bulb is not blue, skipping automated control.")
                     
-        sleep_seconds = 5
+        sleep_seconds = 10
         sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds} seconds]" 
         write_log(sleep_message)
         time.sleep(sleep_seconds) # Check for new submission every 5 seconds.
