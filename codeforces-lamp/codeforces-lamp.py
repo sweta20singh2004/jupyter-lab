@@ -190,7 +190,7 @@ def codeforces_submission_monitor():
             submission_timestamp = latest_submission["creationTimeSeconds"]
             if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
                 write_log(f"New submission recorded : {submission_id}")
-                # Process the submission and update bulb colorabs
+                # Process the submission and update bulb color
                 verdict = latest_submission["verdict"]
                 process_submission(openapi)
                 if verdict == "OK":
@@ -208,7 +208,7 @@ def codeforces_submission_monitor():
                     color = map_rating_to_color(2101)
                     set_bulb_color(openapi, color)
                     time.sleep(sleep_seconds)
-                #Update last processed submission timestamp or Idabs
+                #Update last processed submission timestamp or Id
                 last_submission_timestamp = submission_timestamp
                 last_submission_id = submission_id
             
