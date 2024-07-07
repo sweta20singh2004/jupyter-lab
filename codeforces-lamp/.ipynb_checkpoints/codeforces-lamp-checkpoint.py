@@ -27,7 +27,7 @@ def initialize_tuya_api():
 def send_tuya_command(openapi, endpoint, commands):
     response = openapi.post(endpoint, commands)
     if response.get("success"):
-        write_log("Bulb turned on successfully")
+        write_log("Lamp turned on successfully")
     else:
         write_log(f"Failed to execute command: {response.get('msg')}")
         
@@ -121,7 +121,7 @@ def set_bulb_color(openapi, color):
     bulb_id = os.getenv("TUYA_BULB_ID")
     if not bulb_id:
         raise ValueError("Tuya bulb ID must be set as an environment variable.")
-    
+
     commands = {
         "commands": [
             {"code": "switch_led", "value": True},
@@ -129,32 +129,40 @@ def set_bulb_color(openapi, color):
             {"code": "colour_data_v2", "value": color}
         ]
     }
-    
+
     send_tuya_command(openapi, f"/v1.0/iot-03/devices/{bulb_id}/commands", commands)
-    
+
 def is_bulb_on(bulb_state):
     for item in bulb_state:
         if item['code'] == 'switch_led':
             return item['value']
     return None
-def is_bulb_on_and_color_is_blue(bulb_state):
+    
+def is_bulb_on_and_codeforces_pallete(bulb_state):   
+    hue_values = {0, 30, 60, 120, 180, 240}
     # Initialize variables to check for switch state and color state
     is_on = False
-    is_blue = False
+    is_codeforces_pallete = False
     
     # Iterate over the bulb state to check for required conditions
     for item in bulb_state:
+        # Check if work mode is on and refrain from changing color
+        if item['code'] == 'work_mode':
+            work_state = item['value']
+            if work_state == "white":
+                write_log(f"Work mode is on : {item['value']} : Skipping lamp color change!")
+                return False
         if item['code'] == 'switch_led':
             is_on = item['value']
         if item['code'] == 'colour_data_v2':
             color_state = item['value']
             if isinstance(color_state, str):
                 color_state = json.loads(color_state)
-            if color_state.get('h') == 240:
-                is_blue = True
+            if color_state.get('h') in hue_values:
+                is_codeforces_pallete = True
     
     # Return True only if the bulb is on and the color is blue
-    return is_on and is_blue
+    return is_on and is_codeforces_pallete
     
 def set_bulb_off(openapi):
     bulb_id = os.getenv("TUYA_BULB_ID")
@@ -198,6 +206,7 @@ def recent_submissions(count=None):
     parameters = {}
     parameters["count"] = count
     return codeforces_api_request(method, parameters)
+
 def user_info(handle="hanisntsolo"):
     method = "user.info"
     parameters = {"handles": handle}
@@ -226,14 +235,13 @@ def codeforces_submission_monitor():
             submission_timestamp = latest_submission["creationTimeSeconds"]
             bulb_state = get_bulb_state(openapi)
             # Get state of the bulb if its off means it was turned off manually hence don't do anything.
-            
             if is_bulb_on(bulb_state) == False:
                 sleep_seconds = 5
-                write_log(f"Bulb is off, skipping automated control. Sleeping for {sleep_seconds} seconds")
+                write_log(f"Lamp is off, skipping automated control. Sleeping for {sleep_seconds} seconds")
                 time.sleep(sleep_seconds)
                 continue # Continue with state checking 
-            # Check if the bulb is on and color is blue only then change and check state.
-            if is_bulb_on_and_color_is_blue(bulb_state):    
+            # Check if the bulb is on and color is codeforces pallete only then change and check state.
+            if is_bulb_on_and_codeforces_pallete(bulb_state):    
                 if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
                     write_log(f"New submission recorded : {submission_id}")
                     # Process the submission and update bulb color
@@ -250,7 +258,7 @@ def codeforces_submission_monitor():
                         sleep_seconds = 30
                         failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}]"
                         write_log(failure_log)
-                        pp(latest_submission)
+                        pp(latest_submission) # To log failed submission
                         color = map_rating_to_color(2101)
                         set_bulb_color(openapi, color)
                         time.sleep(sleep_seconds)
@@ -261,21 +269,21 @@ def codeforces_submission_monitor():
                 else:
                     #No new submission, default to profile color
                     data = user_info()
-                    if data:
+                    if data and is_bulb_on_and_codeforces_pallete(bulb_state):
                         user = data['result'][0]
                         rating = user['rating']
                         color = map_rating_to_color(rating)
                         set_bulb_color(openapi, color)
             else:
-                write_log("Bulb is not blue, skipping automated control.")
+                write_log("Lamp is not in codeforces pallete color, skipping automated control.")
                     
         sleep_seconds = 10
         sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds} seconds]" 
         write_log(sleep_message)
-        time.sleep(sleep_seconds) # Check for new submission every 5 seconds.
+        time.sleep(sleep_seconds) # Check for new submission every 10 seconds.
                     
 def process_submission(openapi):
-    color = map_rating_to_color(1901)
+    color = map_rating_to_color(1901) # Orange 
     for _ in range(3): # Number of blinks
         set_bulb_color(openapi, color)
         time.sleep(1)
