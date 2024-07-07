@@ -88,7 +88,7 @@ def codeforces_api_request(method, parameters):
     if response.status_code == 200:
         return response.json()
     else:
-        write_log(f"Failed to fetch data: {response.get('msg')}")
+        write_log(f"Failed to fetch data: {response}")
         return None
         
 def map_rating_to_color(rating):
@@ -114,7 +114,7 @@ def get_bulb_state(openapi):
     if response.get("success"):
         return response.get("result")
     else:
-        print(f"Failed to get bulb state: {response.get('msg')}")
+        print(f"Failed to get bulb state: {response}")
         return None        
         
 def set_bulb_color(openapi, color):
@@ -222,6 +222,8 @@ def user_status(handle="hanisntsolo", count=1, tillFrom=1):
     
 def codeforces_monitor_all_submissions():
     data = user_status()
+    if not data:
+        return None
     return data["result"][0]
     
 def codeforces_submission_monitor():
@@ -281,7 +283,7 @@ def codeforces_submission_monitor():
         sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds} seconds]" 
         write_log(sleep_message)
         time.sleep(sleep_seconds) # Check for new submission every 10 seconds.
-                    
+
 def process_submission(openapi):
     color = map_rating_to_color(1901) # Orange 
     for _ in range(3): # Number of blinks
