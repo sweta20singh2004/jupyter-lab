@@ -188,6 +188,12 @@ def codeforces_submission_monitor():
         if latest_submission:
             submission_id = latest_submission["id"]
             submission_timestamp = latest_submission["creationTimeSeconds"]
+            bulb_state = get_bulb_state(openapi)
+
+            if bulb_state:
+                if any(state["code"] == "switch_led" and not state["value"] for state in bulb_state):
+                    write_log("Bulb is off, skipping automated control.")
+            
             if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
                 write_log(f"New submission recorded : {submission_id}")
                 # Process the submission and update bulb color
