@@ -6,6 +6,7 @@ import string
 import time
 import requests
 import json
+import pytz
 from tuya_connector import TuyaOpenAPI
 from datetime import datetime
 from pprint import pp
@@ -15,6 +16,13 @@ load_dotenv(dotenv_path='/.env')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
+# Time in UTC to local/time zone
+def get_ist_time():
+    utc_now = datetime.now(pytz.utc)
+    local_time_now = pytz.timezone('Asia/Kolkata')
+    local_now = utc_now.astimezone(local_time_now)
+    return local_now.strftime('%Y-%m-%d %H:%M:%S')
+    
 def initialize_tuya_api():
     access_id = os.getenv("TUYA_ACCESS_ID")
     access_key = os.getenv("TUYA_ACCESS_KEY")
@@ -49,7 +57,8 @@ def add_authorization_parameters(method, parameters, key, secret):
     parameters["apiSig"] = api_sig
 
 def write_log(message):
-    log_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [CODEFORCES_LAMP] : {message}"
+    formatted_ist_time = get_ist_time()
+    log_message = f"{formatted_ist_time} - [CODEFORCES_LAMP] : {message}"
     print(log_message)
     return # When inside container.
     try:
@@ -231,6 +240,7 @@ def codeforces_submission_monitor():
     last_submission_id = None
     openapi = initialize_tuya_api() # Set tupy api to be able to send instructions.
     while True:
+        formatted_ist_time = get_ist_time()
         latest_submission = codeforces_monitor_all_submissions()
         if latest_submission:
             submission_id = latest_submission["id"]
@@ -245,20 +255,20 @@ def codeforces_submission_monitor():
             # Check if the bulb is on and color is codeforces pallete only then change and check state.
             if is_bulb_on_and_codeforces_pallete(bulb_state):    
                 if(last_submission_id is None or submission_id > last_submission_id) and (last_submission_timestamp is None or submission_timestamp > last_submission_timestamp):
-                    write_log(f"New submission recorded : {submission_id}")
+                    write_log(f"{formatted_ist_time} - New submission recorded : {submission_id}")
                     # Process the submission and update bulb color
                     verdict = latest_submission["verdict"]
                     process_submission(openapi)
                     if verdict == "OK":
                         sleep_seconds = 120
-                        accepted_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict Accepted for submission : {submission_id}]"
+                        accepted_log = f"{formatted_ist_time} - [Verdict Accepted for submission : {submission_id}]"
                         write_log(accepted_log)
                         color = map_rating_to_color(1201)
                         set_bulb_color(openapi, color)
                         time.sleep(sleep_seconds)
                     else:
                         sleep_seconds = 30
-                        failure_log = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Verdict failure for submission : {submission_id}]"
+                        failure_log = f"{formatted_ist_time} - [Verdict failure for submission : {submission_id}]"
                         write_log(failure_log)
                         pp(latest_submission) # To log failed submission
                         color = map_rating_to_color(2101)
@@ -280,7 +290,7 @@ def codeforces_submission_monitor():
                 write_log("Lamp is not in codeforces pallete color, skipping automated control.")
                     
         sleep_seconds = 10
-        sleep_message = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')} - [Sleeping for : {sleep_seconds} seconds]" 
+        sleep_message = f"{formatted_ist_time} - [Sleeping for : {sleep_seconds} seconds]" 
         write_log(sleep_message)
         time.sleep(sleep_seconds) # Check for new submission every 10 seconds.
 
