@@ -68,7 +68,7 @@ def commit_and_push():
         write_log(log_message)
 
 if __name__ == "__main__":
-    subprofe
+    subprocess.run(['git', 'config', '--global', '--add', 'safe.directory', COMMIT_SPECIFIC_DIRECTORY])
     while True:
         time.sleep(5)
         commit_and_push()
