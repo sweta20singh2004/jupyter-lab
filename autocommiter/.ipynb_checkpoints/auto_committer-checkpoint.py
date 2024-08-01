@@ -3,9 +3,9 @@ import subprocess
 import schedule
 import time
 from datetime import datetime
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 # Load environment variables from a specified .env file
-load_dotenv(dotenv_path='/media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env')
+# load_dotenv(dotenv_path='/media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/.env') # Not is case of container
 # Set your repository path
 AUTO_COMMIT_REPO_PATH = str(os.getenv('AUTO_COMMIT_REPO_PATH'))
 # Set your specific directory to add
