@@ -11,12 +11,13 @@ AUTO_COMMIT_REPO_PATH = str(os.getenv('AUTO_COMMIT_REPO_PATH'))
 # Set your specific directory to add
 COMMIT_SPECIFIC_DIRECTORY = str(os.getenv('COMMIT_SPECIFIC_DIRECTORY'))
 # GitHub token and user/repo information
-GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
 COMMITTER = os.getenv('COMMITTER')
 USER_EMAIL = os.getenv('USEREMAIL')
 USER_NAME = os.getenv('USERNAME')
+INTERVAL = os.getenv('COMMIT_INTERVAL_SECONDS')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
@@ -56,7 +57,7 @@ def commit_and_push():
         push_command = [
             'git',
             'push',
-            f'https://{GITHUB_TOKEN_SWETA}@github.com/{LAB_REPO_OWNER}/{LAB_REPO_NAME}.git'
+            f'https://{GITHUB_TOKEN}@github.com/{LAB_REPO_OWNER}/{LAB_REPO_NAME}.git'
         ]
         subprocess.run(push_command, check=True)
 
@@ -75,7 +76,7 @@ if __name__ == "__main__":
     subprocess.run(['git', 'config', '--global', 'user.email', USER_EMAIL], check=True)
     subprocess.run(['git', 'config', '--global', 'user.name', USER_NAME], check=True)
     while True:
-        time.sleep(5)
+        time.sleep(INTERVAL)
         commit_and_push()
 #chmod +x /path/to/your/auto_commit_with_token.py
 #*/5 * * * * /usr/bin/python3 /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.py >> /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.log 2>&1
