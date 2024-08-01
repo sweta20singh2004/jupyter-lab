@@ -45,7 +45,7 @@ def commit_and_push():
         subprocess.run(['git', 'pull'], check=True)
 
         # Create commit message with the latest date and time
-        commit_message = f'Auto-commit on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Regular update to keep the repository up-to-date.[FROM-SINGHSERVER]'
+        commit_message = f'Auto-commit on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Regular update to keep the repository up-to-date.[FROM-{COMMITTER}]'
 
         # Commit changes
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)

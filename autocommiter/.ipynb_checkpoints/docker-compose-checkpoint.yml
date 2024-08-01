@@ -21,4 +21,4 @@ services:
       - LAB_LOG_FILE_PATH=${LAB_LOG_FILE_PATH}
       - COMMITTER=${COMMITTER}
     volumes:
-      - ${DOCKER_DATA}/auto-commiter:/app
+      - ${COMMIT_SPECIFIC_DIRECTORY}:/

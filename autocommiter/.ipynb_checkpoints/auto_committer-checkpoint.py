@@ -14,7 +14,7 @@ COMMIT_SPECIFIC_DIRECTORY = str(os.getenv('COMMIT_SPECIFIC_DIRECTORY'))
 GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
-
+COMMITTER = os.getenv('COMMITTER')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
@@ -45,7 +45,7 @@ def commit_and_push():
         subprocess.run(['git', 'pull'], check=True)
 
         # Create commit message with the latest date and time
-        commit_message = f'Auto-commit on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Regular update to keep the repository up-to-date.[FROM-SINGHSERVER]'
+        commit_message = f'Auto-commit on {datetime.now().strftime("%Y-%m-%d %H:%M:%S")} - Regular update to keep the repository up-to-date.[FROM-{COMMITTER}]'
 
         # Commit changes
         subprocess.run(['git', 'commit', '-m', commit_message], check=True)
