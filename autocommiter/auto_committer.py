@@ -15,6 +15,8 @@ GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
 COMMITTER = os.getenv('COMMITTER')
+USER_EMAIL = os.getenv('USEREMAIL')
+USER_NAME = os.getenv("USERNAME")
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
@@ -69,6 +71,9 @@ def commit_and_push():
 
 if __name__ == "__main__":
     subprocess.run(['git', 'config', '--global', '--add', 'safe.directory', COMMIT_SPECIFIC_DIRECTORY])
+    # Set Git user info
+    subprocess.run(['git', 'config', '--global', 'user.email', USER_EMAIL], check=True)
+    subprocess.run(['git', 'config', '--global', 'user.name', USER_NAME], check=True)
     while True:
         time.sleep(5)
         commit_and_push()
