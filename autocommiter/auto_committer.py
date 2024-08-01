@@ -11,7 +11,7 @@ AUTO_COMMIT_REPO_PATH = str(os.getenv('AUTO_COMMIT_REPO_PATH'))
 # Set your specific directory to add
 COMMIT_SPECIFIC_DIRECTORY = str(os.getenv('COMMIT_SPECIFIC_DIRECTORY'))
 # GitHub token and user/repo information
-GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
+GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
 COMMITTER = os.getenv('COMMITTER')
@@ -56,7 +56,7 @@ def commit_and_push():
         push_command = [
             'git',
             'push',
-            f'https://{GITHUB_TOKEN_SWETA}@github.com/{LAB_REPO_OWNER}/{LAB_REPO_NAME}.git'
+            f'https://{GITHUB_TOKEN}@github.com/{LAB_REPO_OWNER}/{LAB_REPO_NAME}.git'
         ]
         subprocess.run(push_command, check=True)
 
