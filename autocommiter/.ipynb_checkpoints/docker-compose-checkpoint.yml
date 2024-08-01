@@ -4,13 +4,20 @@ services:
   flask_app:
     build: .
     restart: always
-    container_name: marks_container
+    container_name: auto-committer
     deploy:
       resources:
         limits:
           cpus: '1.0'
           memory: 512M
     ports:
-      - "5007:5007"
+      - "5009:5009"
+    environment:
+      - AUTO_COMMIT_REPO_PATH=${AUTO_COMMIT_REPO_PATH}
+      - COMMIT_SPECIFIC_DIRECTORY=${COMMIT_SPECIFIC_DIRECTORY}
+      - GITHUB_TOKEN_SWETA=${GITHUB_TOKEN_SWETA}
+      - LAB_REPO_OWNER=${LAB_REPO_OWNER}
+      - LAB_REPO_NAME=${LAB_REPO_NAME}
+      - LAB_LOG_FILE_PATH=${LAB_LOG_FILE_PATH}
     volumes:
-      - ${DOCKER_DATA}/marks_db:/app/marks_data
+      - ${DOCKER_DATA}/auto-commiter:/app/committer
