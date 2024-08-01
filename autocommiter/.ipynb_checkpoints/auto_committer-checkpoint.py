@@ -16,7 +16,7 @@ LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
 COMMITTER = os.getenv('COMMITTER')
 USER_EMAIL = os.getenv('USEREMAIL')
-USER_NAME = os.getenv("USERNAME")
+USER_NAME = os.getenv('USERNAME')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
