@@ -17,7 +17,7 @@ LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
 COMMITTER = os.getenv('COMMITTER')
 USER_EMAIL = os.getenv('USEREMAIL')
 USER_NAME = os.getenv('USERNAME')
-INTERVAL = os.getenv('COMMIT_INTERVAL_SECONDS')
+INTERVAL = int(os.getenv('COMMIT_INTERVAL_SECONDS'))
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
