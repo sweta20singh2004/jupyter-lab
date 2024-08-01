@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  flask_app:
+  commiter_app:
     build: .
     restart: always
     container_name: auto-committer
