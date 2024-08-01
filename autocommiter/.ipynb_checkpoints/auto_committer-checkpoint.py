@@ -68,6 +68,8 @@ def commit_and_push():
         write_log(log_message)
 
 if __name__ == "__main__":
-    commit_and_push()
+    while True:
+        time.sleep(5)
+        commit_and_push()
 #chmod +x /path/to/your/auto_commit_with_token.py
 #*/5 * * * * /usr/bin/python3 /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.py >> /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.log 2>&1

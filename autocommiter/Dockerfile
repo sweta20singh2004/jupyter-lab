@@ -11,11 +11,11 @@ COPY requirements.txt requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code and templates into the container
-COPY codeforces-lamp.py codeforces-lamp.py
+COPY auto_committer.py auto_committer.py
 # Ensure the environment variables are sourced
 
 # Expose the port the app runs on
-EXPOSE 5008
+EXPOSE 5009
 
 # Run the application
-CMD ["python", "codeforces-lamp.py"]
+CMD ["python", "auto_committer.py"]

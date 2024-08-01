@@ -14,7 +14,7 @@ COMMIT_SPECIFIC_DIRECTORY = str(os.getenv('COMMIT_SPECIFIC_DIRECTORY'))
 GITHUB_TOKEN_SWETA = os.getenv('GITHUB_TOKEN_SWETA')
 LAB_REPO_OWNER = os.getenv('LAB_REPO_OWNER')
 LAB_REPO_NAME = os.getenv('LAB_REPO_NAME')
-
+COMMITTER = os.getenv('COMMITTER')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
 
@@ -68,6 +68,8 @@ def commit_and_push():
         write_log(log_message)
 
 if __name__ == "__main__":
-    commit_and_push()
+    while True:
+        time.sleep(5)
+        commit_and_push()
 #chmod +x /path/to/your/auto_commit_with_token.py
 #*/5 * * * * /usr/bin/python3 /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.py >> /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/AutoAddAndCommit.log 2>&1
