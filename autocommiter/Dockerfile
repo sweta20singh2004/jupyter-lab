@@ -1,6 +1,6 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.9-slim
-
+RUN pip install --upgrade pip
 # Set the working directory
 WORKDIR /
 

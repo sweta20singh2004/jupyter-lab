@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  flask_app:
+  commiter_app:
     build: .
     restart: always
     container_name: auto-committer
@@ -21,4 +21,4 @@ services:
       - LAB_LOG_FILE_PATH=${LAB_LOG_FILE_PATH}
       - COMMITTER=${COMMITTER}
     volumes:
-      - ${COMMIT_SPECIFIC_DIRECTORY}:/
+      - ${COMMIT_SPECIFIC_DIRECTORY}:/app
