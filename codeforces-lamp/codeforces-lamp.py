@@ -16,9 +16,26 @@ from pprint import pp
 
 # Load environment variables from a specified .env file
 load_dotenv(dotenv_path='/.env')
-# Log Cle
+# Log Cleanup
+def cleanup_old_logs(log_directory, retention_days=5):
+    current_time = time.time()
+    retention_period = retention_days * 24 * 60 * 60  # Convert days to seconds
+
+    # Iterate over all log files in the directory
+    for log_file in glob.glob(os.path.join(log_directory, '*.log')):
+        file_mod_time = os.path.getmtime(log_file)
+        if current_time - file_mod_time > retention_period:
+            try:
+                os.remove(log_file)
+                print(f"Removed old log file: {log_file}")
+            except Exception as e:
+                print(f"Error removing log file {log_file}: {e}")
+
+# Example call to cleanup logs
+log_directory = os.getenv('LAB_LOG_FILE_PATH', '/logs').rsplit('/', 1)[0]
+cleanup_old_logs(log_directory)
 # Path to your log file
-LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH', 'logs/codeforces_lamp.log')
+LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH', '/logs/codeforces_lamp.log')
 # Initialize the logger.
 def initialize_logger():
     # Create logger
