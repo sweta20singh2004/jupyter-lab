@@ -34,7 +34,7 @@ def cleanup_old_logs(log_directory, retention_days=5):
 
 # Example call to cleanup logs
 log_directory = os.getenv('LAB_LOG_FILE_PATH', '/logs').rsplit('/', 1)[0]
-cleanup_old_logs(log_directory);;
+cleanup_old_logs(log_directory)
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH', '/logs/codeforces_lamp.log')
 # Initialize the logger.
