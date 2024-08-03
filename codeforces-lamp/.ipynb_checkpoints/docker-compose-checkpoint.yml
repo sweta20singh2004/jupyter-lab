@@ -12,3 +12,10 @@ services:
           memory: 512M
     ports:
       - "5008:5008"
+    environment:
+      - CODEFORCES_API_KEY=${CODEFORCES_API_KEY}
+      - CODEFORCES_API_SECRET=${CODEFORCES_API_SECRET}
+      - TUYA_ACCESS_ID=${TUYA_ACCESS_ID}
+      - TUYA_ACCESS_KEY=${TUYA_ACCESS_KEY}
+      - TUYA_BULB_ID=${TUYA_BULB_ID}
+      - LAB_LOG_FILE_PATH=/logs/codeforces_lamp.log
