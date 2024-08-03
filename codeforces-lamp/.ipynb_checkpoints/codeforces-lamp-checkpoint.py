@@ -43,18 +43,23 @@ def initialize_logger():
     logger = logging.getLogger('CodeforcesLampLogger')
     logger.setLevel(logging.INFO)
 
-    # Create a rotating file handler that creates a new log file daily and retains logs for 5 days
-    handler = TimedRotatingFileHandler(
+    # Create a formatter
+    formatter = logging.Formatter('%(asctime)s - [CODEFORCES_LAMP] : %(message)s')
+
+    # Create a file handler with rotation
+    file_handler = TimedRotatingFileHandler(
         LAB_LOG_FILE_PATH, when="midnight", interval=1, backupCount=5
     )
-    handler.setLevel(logging.INFO)
+    file_handler.setLevel(logging.INFO)
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
 
-    # Create formatter and add it to the handler
-    formatter = logging.Formatter('%(asctime)s - [CODEFORCES_LAMP] : %(message)s')
-    handler.setFormatter(formatter)
+    # Create a console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setLevel(logging.INFO)
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
 
-    # Add handler to the logger
-    logger.addHandler(handler)
     return logger
 
 # Initialize the logger
@@ -105,8 +110,8 @@ def write_log(message):
     log_message = f"{formatted_ist_time} - [CODEFORCES_LAMP] : {message}"
     logger.info(log_message)
     # Write log message to stdout
-    sys.stdout.write(f"{log_message}\n")
-    sys.stdout.flush()  # Ensure the message is flushed to stdout immediately
+    # sys.stdout.write(f"{log_message}\n") # already handled in inititali_logger()
+    # sys.stdout.flush()  # Ensure the message is flushed to stdout immediately
     return # When inside container.
     try:
         # Read the existing contents of the log file
