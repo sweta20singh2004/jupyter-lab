@@ -18,3 +18,4 @@ services:
       - TUYA_ACCESS_ID=${TUYA_ACCESS_ID}
       - TUYA_ACCESS_KEY=${TUYA_ACCESS_KEY}
       - TUYA_BULB_ID=${TUYA_BULB_ID}
+      - LAB_LOG_FILE_PATH="logs"
