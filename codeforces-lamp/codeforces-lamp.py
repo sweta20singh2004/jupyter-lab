@@ -7,6 +7,8 @@ import time
 import requests
 import json
 import pytz
+import logging
+from logging.handlers import TimedRotatingFileHandler
 from tuya_connector import TuyaOpenAPI
 from datetime import datetime
 from pprint import pp
@@ -15,6 +17,29 @@ from pprint import pp
 load_dotenv(dotenv_path='/.env')
 # Path to your log file
 LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
+# Initialize the logger.
+# Initialize the logger
+def initialize_logger():
+    # Create logger
+    logger = logging.getLogger('CodeforcesLampLogger')
+    logger.setLevel(logging.INFO)
+
+    # Create handler for rotating log files
+    handler = TimedRotatingFileHandler(
+        LAB_LOG_FILE_PATH, when="midnight", interval=1, backupCount=5
+    )
+    handler.setLevel(logging.INFO)
+
+    # Create formatter and add it to the handler
+    formatter = logging.Formatter('%(asctime)s - [CODEFORCES_LAMP] : %(message)s')
+    handler.setFormatter(formatter)
+
+    # Add handler to the logger
+    logger.addHandler(handler)
+    return logger
+
+# Initialize the logger
+logger = initialize_logger()
 
 # Time in UTC to local/time zone
 def get_ist_time():
@@ -59,7 +84,7 @@ def add_authorization_parameters(method, parameters, key, secret):
 def write_log(message):
     formatted_ist_time = get_ist_time()
     log_message = f"{formatted_ist_time} - [CODEFORCES_LAMP] : {message}"
-    print(log_message)
+    logger.info(log_message)
     return # When inside container.
     try:
         # Read the existing contents of the log file
