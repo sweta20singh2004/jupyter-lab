@@ -8,6 +8,7 @@ import requests
 import json
 import pytz
 import logging
+import glob
 from logging.handlers import TimedRotatingFileHandler
 from tuya_connector import TuyaOpenAPI
 from datetime import datetime
@@ -15,16 +16,16 @@ from pprint import pp
 
 # Load environment variables from a specified .env file
 load_dotenv(dotenv_path='/.env')
+# Log Cle
 # Path to your log file
-LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH')
+LAB_LOG_FILE_PATH = os.getenv('LAB_LOG_FILE_PATH', 'logs/codeforces_lamp.log')
 # Initialize the logger.
-# Initialize the logger
 def initialize_logger():
     # Create logger
     logger = logging.getLogger('CodeforcesLampLogger')
     logger.setLevel(logging.INFO)
 
-    # Create handler for rotating log files
+    # Create a rotating file handler that creates a new log file daily and retains logs for 5 days
     handler = TimedRotatingFileHandler(
         LAB_LOG_FILE_PATH, when="midnight", interval=1, backupCount=5
     )

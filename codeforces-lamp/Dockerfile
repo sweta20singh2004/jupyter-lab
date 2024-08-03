@@ -10,6 +10,9 @@ COPY requirements.txt requirements.txt
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Create a directory for logs within the container
+RUN mkdir -p /logs
+
 # Copy the application code and templates into the container
 COPY codeforces-lamp.py codeforces-lamp.py
 # Ensure the environment variables are sourced
