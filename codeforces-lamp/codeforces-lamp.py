@@ -9,6 +9,7 @@ import json
 import pytz
 import logging
 import glob
+import sys
 from logging.handlers import TimedRotatingFileHandler
 from tuya_connector import TuyaOpenAPI
 from datetime import datetime
@@ -103,6 +104,9 @@ def write_log(message):
     formatted_ist_time = get_ist_time()
     log_message = f"{formatted_ist_time} - [CODEFORCES_LAMP] : {message}"
     logger.info(log_message)
+    # Write log message to stdout
+    sys.stdout.write(f"{log_message}\n")
+    sys.stdout.flush()  # Ensure the message is flushed to stdout immediately
     return # When inside container.
     try:
         # Read the existing contents of the log file
