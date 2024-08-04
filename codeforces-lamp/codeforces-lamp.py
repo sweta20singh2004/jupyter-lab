@@ -105,10 +105,15 @@ def add_authorization_parameters(method, parameters, key, secret):
     
     parameters["apiSig"] = api_sig
 
+def sanitize_message(message):
+    """Sanitize the log message by removing non-UTF-8 characters."""
+    sanitized_message = ''.join(c if c.isprintable() else '?' for c in message)
+    return sanitized_message
+
 def write_log(message):
     formatted_ist_time = get_ist_time()
     log_message = f"{formatted_ist_time} - [CODEFORCES_LAMP] : {message}"
-    logger.info(log_message)
+    logger.info(sanitize_message(log_message))
     # Write log message to stdout
     # sys.stdout.write(f"{log_message}\n") # already handled in inititali_logger()
     # sys.stdout.flush()  # Ensure the message is flushed to stdout immediately
