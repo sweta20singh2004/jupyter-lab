@@ -323,6 +323,9 @@ def codeforces_submission_monitor():
                         color = map_rating_to_color(1201)
                         set_bulb_color(openapi, color)
                         time.sleep(sleep_seconds)
+                    elif verdict == "TESTING":
+                        testing_submission(openapi)
+                        continue
                     else:
                         sleep_seconds = 30
                         failure_log = f"{formatted_ist_time} - [Verdict failure for submission : {submission_id}]"
@@ -358,7 +361,13 @@ def process_submission(openapi):
         time.sleep(1)
         set_bulb_color(openapi, {"h": 0, "s": 0, "v": 0}) # Turn the bulb off
         time.sleep(1)
-        
+def testing_submission(openapi):
+    color = map_rating_to_color(1901) # Orange 
+    for _ in range(3): # Number of blinks
+        set_bulb_color(openapi, color)
+        time.sleep(1)
+        set_bulb_color(openapi, {"h": 0, "s": 0, "v": 0}) # Turn the bulb off
+        time.sleep(1)
 def main():
     codeforces_submission_monitor()
     
