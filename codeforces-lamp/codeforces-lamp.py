@@ -339,7 +339,7 @@ def codeforces_submission_monitor():
                     process_submission(openapi)
                     if verdict == "OK":
                         sleep_seconds = 120
-                        accepted_log = f"{formatted_ist_time} - [Verdict Accepted for submission : {submission_id}]"
+                        accepted_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
                         write_log(accepted_log)
                         color = map_rating_to_color(1201)
                         set_bulb_color(openapi, color)
@@ -349,9 +349,17 @@ def codeforces_submission_monitor():
                         failure_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
                         write_log(failure_log)
                         continue
+                    elif verdict == "WRONG_ANSWER":
+                        sleep_seconds = 30
+                        failure_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
+                        write_log(failure_log)
+                        pp(latest_submission) # To log failed submission
+                        color = map_rating_to_color(2101)
+                        set_bulb_color(openapi, color)
+                        time.sleep(sleep_seconds)
                     else:
                         sleep_seconds = 30
-                        failure_log = f"{formatted_ist_time} - [Verdict failure for submission : {submission_id}]"
+                        failure_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
                         write_log(failure_log)
                         pp(latest_submission) # To log failed submission
                         color = map_rating_to_color(2101)
