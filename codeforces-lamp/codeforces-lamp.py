@@ -348,6 +348,7 @@ def codeforces_submission_monitor():
                         testing_submission(openapi)
                         failure_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
                         write_log(failure_log)
+                        continue
                     elif verdict == "WRONG_ANSWER":
                         sleep_seconds = 30
                         failure_log = f"{formatted_ist_time} - [Verdict {verdict} for submission : {submission_id}]"
