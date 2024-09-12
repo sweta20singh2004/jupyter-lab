@@ -64,3 +64,10 @@ Skipping backup for container firefly_iii_db due to missing password.
 Skipping backup for container jupyter_db due to missing password.
 find: ‘’: No such file or directory
 Old backups older than 30 days have been deleted.
+Backup script started at Friday 13 September 2024 01:00:01 AM IST
+Backup directory  does not exist. Creating it now.
+mkdir: cannot create directory ‘’: No such file or directory
+Skipping backup for container firefly_iii_db due to missing password.
+Skipping backup for container jupyter_db due to missing password.
+find: ‘’: No such file or directory
+Old backups older than 30 days have been deleted.
