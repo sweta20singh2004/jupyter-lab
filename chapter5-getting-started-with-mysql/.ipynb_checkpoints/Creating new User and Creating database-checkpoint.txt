@@ -1,0 +1,13 @@
+mysql -u root -p
+
+CREATE USER 'sweta'@'localhost' IDENTIFIED BY 'password'; // change password to something strong password.
+GRANT ALL PRIVILEGES ON *.* TO 'sweta'@'localhost' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+mysql -u root -p
+
+CREATE DATABASE sweta;
+
+GRANT ALL PRIVILEGES ON sweta.* TO 'sweta'@'localhost';
+FLUSH PRIVILEGES;
+
