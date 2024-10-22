@@ -1022,7 +1022,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('%','hanisntsolo','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$E\"~6{aiiNX@Nd=2%g~DsxeE6YAqPselphNeUhmDDHtQcBIZ..Fb3ZkgF/5x91','N','2024-08-28 17:57:46',NULL,'N','N','N',NULL,NULL,NULL,NULL),('%','jovyan','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$>\'i.*9`HsYmHp\\|dr9wuha8sSLQRtlfG2UxBrWTTi3.pteouTbUoKDgK1891','N','2024-08-28 18:16:57',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('%','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$@\\7;C8H?^iQodyBi5tpfQ.prSOoAY7VSvfi2G81upAtPyB8hq7TCQwr0','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','mysql.infoschema','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.session','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.sys','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$8Vb%s\"mda\"G87|VJqFBgkvgVbH63qH28LmRVB76hbizKaeVA3WeIIMHT7','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES ('%','hanisntsolo','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$E\"~6{aiiNX@Nd=2%g~DsxeE6YAqPselphNeUhmDDHtQcBIZ..Fb3ZkgF/5x91','N','2024-08-28 17:57:46',NULL,'N','N','N',NULL,NULL,NULL,NULL),('%','jovyan','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$>\'i.*9`HsYmHp\\|dr9wuha8sSLQRtlfG2UxBrWTTi3.pteouTbUoKDgK1891','N','2024-08-28 18:16:57',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('%','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$@\\7;C8H?^iQodyBi5tpfQ.prSOoAY7VSvfi2G81upAtPyB8hq7TCQwr0','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','mysql.infoschema','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.session','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.sys','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$8Vb%s\"mda\"G87|VJqFBgkvgVbH63qH28LmRVB76hbizKaeVA3WeIIMHT7','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','sweta','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$EI-\n\ZYm(:-jZ[QPUGN.frSOhG9ZkyPoPxwZnClGK723qNkC2PEyuDQtPUB','N','2024-10-13 09:02:35',NULL,'N','N','N',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1071,6 +1071,14 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `hanisntsolo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `hanisntsolo`;
+
+--
+-- Current Database: `sweta`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sweta` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `sweta`;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=@OLD_INNODB_STATS_AUTO_RECALC */;
 
@@ -1082,4 +1090,4 @@ USE `hanisntsolo`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-21  8:30:02
+-- Dump completed on 2024-10-22 18:30:02
