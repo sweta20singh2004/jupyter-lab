@@ -352,7 +352,7 @@ UNLOCK TABLES;
 --
 
 /*!40000 ALTER TABLE `innodb_index_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
+INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
 /*!40000 ALTER TABLE `innodb_index_stats` ENABLE KEYS */;
 
 --
@@ -360,7 +360,7 @@ INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','
 --
 
 /*!40000 ALTER TABLE `innodb_table_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
+INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
 /*!40000 ALTER TABLE `innodb_table_stats` ENABLE KEYS */;
 
 --
@@ -1022,7 +1022,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES ('%','hanisntsolo','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$E\"~6{aiiNX@Nd=2%g~DsxeE6YAqPselphNeUhmDDHtQcBIZ..Fb3ZkgF/5x91','N','2024-08-28 17:57:46',NULL,'N','N','N',NULL,NULL,NULL,NULL),('%','jovyan','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$>\'i.*9`HsYmHp\\|dr9wuha8sSLQRtlfG2UxBrWTTi3.pteouTbUoKDgK1891','N','2024-08-28 18:16:57',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('%','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$@\\7;C8H?^iQodyBi5tpfQ.prSOoAY7VSvfi2G81upAtPyB8hq7TCQwr0','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','mysql.infoschema','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.session','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.sys','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$8Vb%s\"mda\"G87|VJqFBgkvgVbH63qH28LmRVB76hbizKaeVA3WeIIMHT7','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES ('%','hanisntsolo','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$E\"~6{aiiNX@Nd=2%g~DsxeE6YAqPselphNeUhmDDHtQcBIZ..Fb3ZkgF/5x91','N','2024-08-28 17:57:46',NULL,'N','N','N',NULL,NULL,NULL,NULL),('%','jovyan','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','N','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$>\'i.*9`HsYmHp\\|dr9wuha8sSLQRtlfG2UxBrWTTi3.pteouTbUoKDgK1891','N','2024-08-28 18:16:57',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('%','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$@\\7;C8H?^iQodyBi5tpfQ.prSOoAY7VSvfi2G81upAtPyB8hq7TCQwr0','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','mysql.infoschema','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.session','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','Y','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','mysql.sys','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$THISISACOMBINATIONOFINVALIDSALTANDPASSWORDTHATMUSTNEVERBRBEUSED','N','2024-08-28 17:57:39',NULL,'Y','N','N',NULL,NULL,NULL,NULL),('localhost','root','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','Y','','','','',0,0,0,0,'caching_sha2_password','$A$005$8Vb%s\"mda\"G87|VJqFBgkvgVbH63qH28LmRVB76hbizKaeVA3WeIIMHT7','N','2024-08-28 17:57:46',NULL,'N','Y','Y',NULL,NULL,NULL,NULL),('localhost','sweta','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','N','','','','',0,0,0,0,'caching_sha2_password','$A$005$EI-\n\ZYm(:-jZ[QPUGN.frSOhG9ZkyPoPxwZnClGK723qNkC2PEyuDQtPUB','N','2024-10-13 09:02:35',NULL,'N','N','N',NULL,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1071,6 +1071,38 @@ CREATE TABLE IF NOT EXISTS `slow_log` (
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `hanisntsolo` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `hanisntsolo`;
+
+--
+-- Current Database: `sweta`
+--
+
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sweta` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+USE `sweta`;
+
+--
+-- Table structure for table `marks`
+--
+
+DROP TABLE IF EXISTS `marks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `marks` (
+  `Sr_No` int DEFAULT NULL,
+  `Subject` varchar(20) DEFAULT NULL,
+  `Marks` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marks`
+--
+
+LOCK TABLES `marks` WRITE;
+/*!40000 ALTER TABLE `marks` DISABLE KEYS */;
+INSERT INTO `marks` VALUES (1,'Physics',71),(2,'Chemistry',57),(3,'Maths',63),(4,'English',55);
+/*!40000 ALTER TABLE `marks` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=@OLD_INNODB_STATS_AUTO_RECALC */;
 
@@ -1082,4 +1114,4 @@ USE `hanisntsolo`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-09-29 18:30:04
+-- Dump completed on 2024-10-31 18:30:04
