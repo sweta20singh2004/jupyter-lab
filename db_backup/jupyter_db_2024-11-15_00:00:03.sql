@@ -352,7 +352,7 @@ UNLOCK TABLES;
 --
 
 /*!40000 ALTER TABLE `innodb_index_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
+INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_diff_pfx01',10,1,'Code'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','size',1,NULL,'Number of pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_diff_pfx01',10,1,'Code'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','size',1,NULL,'Number of pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','size',1,NULL,'Number of pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_diff_pfx01',10,1,'employee_id'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
 /*!40000 ALTER TABLE `innodb_index_stats` ENABLE KEYS */;
 
 --
@@ -360,7 +360,7 @@ INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','
 --
 
 /*!40000 ALTER TABLE `innodb_table_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
+INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','Admin','2024-11-12 12:35:59',10,1,0),('sweta','School','2024-11-12 12:35:18',10,1,0),('sweta','Student','2024-11-12 12:12:29',8,1,0),('sweta','employees','2024-11-12 12:28:38',10,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
 /*!40000 ALTER TABLE `innodb_table_stats` ENABLE KEYS */;
 
 --
@@ -1079,6 +1079,144 @@ USE `hanisntsolo`;
 CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sweta` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
 USE `sweta`;
+
+--
+-- Table structure for table `Admin`
+--
+
+DROP TABLE IF EXISTS `Admin`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Admin` (
+  `Code` int NOT NULL,
+  `Gender` varchar(10) DEFAULT NULL,
+  `Designation` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Admin`
+--
+
+LOCK TABLES `Admin` WRITE;
+/*!40000 ALTER TABLE `Admin` DISABLE KEYS */;
+INSERT INTO `Admin` VALUES (1,'Male','Principal'),(2,'Female','Vice-Principal'),(3,'Male','School Secretary'),(4,'Female','Registrar'),(5,'Male','Accountant'),(6,'Female','Admissions Officer'),(7,'Male','IT Coordinator'),(8,'Female','Librarian'),(9,'Male','Sports Coordinator'),(10,'Female','Counselor');
+/*!40000 ALTER TABLE `Admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `School`
+--
+
+DROP TABLE IF EXISTS `School`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `School` (
+  `Code` int NOT NULL,
+  `Teacher` varchar(100) DEFAULT NULL,
+  `Subject` varchar(50) DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `Periods` int DEFAULT NULL,
+  `Experience` int DEFAULT NULL,
+  PRIMARY KEY (`Code`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `School`
+--
+
+LOCK TABLES `School` WRITE;
+/*!40000 ALTER TABLE `School` DISABLE KEYS */;
+INSERT INTO `School` VALUES (1,'John Doe','Mathematics','1980-05-14',5,10),(2,'Jane Smith','English','1985-08-22',6,8),(3,'Robert Brown','Science','1979-03-10',7,12),(4,'Emily Davis','History','1990-11-04',4,5),(5,'Michael Johnson','Geography','1983-01-30',6,9),(6,'Sarah Williams','Computer Science','1992-06-18',8,4),(7,'David Miller','Art','1988-09-12',3,7),(8,'Laura Wilson','Physical Education','1984-07-27',5,11),(9,'Daniel Lee','Chemistry','1990-12-06',7,6),(10,'Olivia Harris','Music','1982-04-21',4,10);
+/*!40000 ALTER TABLE `School` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Student`
+--
+
+DROP TABLE IF EXISTS `Student`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Student` (
+  `Roll_No` int DEFAULT NULL,
+  `Name` varchar(15) DEFAULT NULL,
+  `Class` varchar(5) DEFAULT NULL,
+  `DOB` date DEFAULT NULL,
+  `Gender` varchar(4) DEFAULT NULL,
+  `City` varchar(15) DEFAULT NULL,
+  `Marks` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Student`
+--
+
+LOCK TABLES `Student` WRITE;
+/*!40000 ALTER TABLE `Student` DISABLE KEYS */;
+INSERT INTO `Student` VALUES (1,'Anand','XI','1997-06-06','M','Agra',430),(2,'Chetan','XII','1994-05-07','M','Mumbai',460),(3,'Geet','XI','1997-06-05','F','Agra',470),(4,'Preeti','XII','1995-08-08','F','Mumbai',492),(5,'Saniyal','XII','1995-10-08','M','Delhi',360),(6,'Maakhiy','XI','1994-12-12','F','Dubai',256),(7,'Neha','X','1995-12-08','F','Moscow',324),(8,'Nishant','X','1995-06-12','M','Moscow',429);
+/*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `employees`
+--
+
+DROP TABLE IF EXISTS `employees`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `employees` (
+  `employee_id` int NOT NULL,
+  `first_name` varchar(50) DEFAULT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `age` int DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  `department` varchar(50) DEFAULT NULL,
+  `position` varchar(50) DEFAULT NULL,
+  `salary` int DEFAULT NULL,
+  `date_of_joining` date DEFAULT NULL,
+  `contact_number` varchar(15) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`employee_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `employees`
+--
+
+LOCK TABLES `employees` WRITE;
+/*!40000 ALTER TABLE `employees` DISABLE KEYS */;
+INSERT INTO `employees` VALUES (101,'Ramesh','Kumar',28,'Male','Finance','Accountant',45000,'2020-01-01','9876543210','ramesh.kumar@email.com'),(102,'Priya','Sharma',32,'Female','Human Resources','HR Manager',55000,'2019-03-15','9123456789','priya.sharma@email.com'),(103,'Raj','Patel',25,'Male','IT','Software Developer',60000,'2021-02-20','9501234567','raj.patel@email.com'),(104,'Neha','Gupta',29,'Female','Marketing','Marketing Executive',50000,'2018-05-10','9786123456','neha.gupta@email.com'),(105,'Aakash','Verma',24,'Male','Sales','Sales Executive',40000,'2022-09-05','9645283746','aakash.verma@email.com'),(106,'Simran','Kaur',31,'Female','Operations','Operations Manager',70000,'2017-12-12','9376347281','simran.kaur@email.com'),(107,'Rahul','Joshi',26,'Male','Customer Service','Customer Support',35000,'2020-07-22','9912345678','rahul.joshi@email.com'),(108,'Sneha','Mehta',27,'Female','Research & Dev','Research Analyst',65000,'2019-04-18','9678123456','sneha.mehta@email.com'),(109,'Arun','Reddy',34,'Male','IT','Network Engineer',58000,'2015-11-07','9634571820','arun.reddy@email.com'),(110,'Pooja','Desai',30,'Female','Finance','Financial Analyst',52000,'2020-06-10','9798456231','pooja.desai@email.com');
+/*!40000 ALTER TABLE `employees` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `marks`
+--
+
+DROP TABLE IF EXISTS `marks`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `marks` (
+  `Sr_No` int DEFAULT NULL,
+  `Subject` varchar(20) DEFAULT NULL,
+  `Marks` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `marks`
+--
+
+LOCK TABLES `marks` WRITE;
+/*!40000 ALTER TABLE `marks` DISABLE KEYS */;
+INSERT INTO `marks` VALUES (1,'Physics',71),(2,'Chemistry',57),(3,'Maths',63),(4,'English',55);
+/*!40000 ALTER TABLE `marks` ENABLE KEYS */;
+UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 /*!50606 SET GLOBAL INNODB_STATS_AUTO_RECALC=@OLD_INNODB_STATS_AUTO_RECALC */;
 
@@ -1090,4 +1228,4 @@ USE `sweta`;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-10-14 18:30:02
+-- Dump completed on 2024-11-14 18:30:04
