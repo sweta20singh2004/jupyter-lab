@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Daily Status</title>
+</head>
+<body>
+    <h1>Update Daily Status of covered subjects here:</h1>
+    <form action="/daily_update" method="post">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="physics">Physics:</label>
+        <input type="text" id="physics" name="physics">
+        <br>
+        <label for="chemistry">Chemistry:</label>
+        <input type="text" id="chemistry" name="chemistry">
+        <br>
+        <label for="maths">Maths:</label>
+        <input type="text" id="maths" name="maths">
+        <br>
+        <label for="english">English:</label>
+        <input type="text" id="english" name="english">
+        <br>
+        <label for="ip">Informatics Practices:</label>
+        <input type="text" id="ip" name="ip">
+        <br>
+        <label for="general_notes">General Notes:</label>
+        <input type="text" id="general_notes" name="general_notes">
+        <br>
+        <input type="submit" value="Update">
+    </form>
+
+    <h2>Daily Status Updates</h2>
+    {% if data %}
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>English</th>
+            <th>Informatics Practices</th>
+            <th>General Notes</th>
+        </tr>
+        {% for record in data %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['ENGLISH'] }}</td>
+            <td>{{ record['INFORMATICS PRACTICES'] }}</td>
+            <td>{{ record['GENERAL NOTES'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No Daily Update Status Data available.</p>
+    {% endif %}
+    <br>
+    <form action="/delete_daily_status" method="post">
+        <label for="date_delete">Date to delete:</label>
+        <input type="date" id="date_delete" name="date" required>
+        <input type="submit" value="Delete">
+    </form>
+    <br>
+    <a href="/admin">Back to Home</a>
+</body>
+</html>

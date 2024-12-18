@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update CBSE Data</title>
+</head>
+<body>
+    <h1>Update CBSE Data</h1>
+    <form action="/update" method="post">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+        <br>
+        <label for="physics">Physics:</label>
+        <input type="number" id="physics" name="physics" required>
+        <br>
+        <label for="chemistry">Chemistry:</label>
+        <input type="number" id="chemistry" name="chemistry" required>
+        <br>
+        <label for="maths">Maths:</label>
+        <input type="number" id="maths" name="maths" required>
+        <br>
+        <label for="english">English:</label>
+        <input type="number" id="english" name="english" required>
+        <br>
+        <label for="ip">IP:</label>
+        <input type="number" id="ip" name="ip" required>
+        <br>
+        <input type="submit" value="Update">
+    </form>
+
+    
+    <h2>Current CBSE Data</h2>
+    {% if data %}
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>English</th>
+            <th>IP</th>
+        </tr>
+        {% for record in data %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['ENGLISH'] }}</td>
+            <td>{{ record['IP'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        <p>No JEE/Advance test marks data available.</p>
+    {% endif %}
+    <h2>Delete CBSE Record</h2>
+    <form action="/delete" method="post">
+        <label for="delete_date">Date to delete:</label>
+        <input type="date" id="delete_date" name="date" required>
+        <br>
+        <input type="submit" value="Delete">
+    </form>
+    
+    <br>
+    <a href="/admin">Back to home</a>
+    <br>
+</body>
+</html>

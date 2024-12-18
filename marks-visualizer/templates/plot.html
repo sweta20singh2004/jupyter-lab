@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Visualization</title>
+</head>
+<body>
+    <h1>Marks in Different Subjects Over Time</h1>
+    <div>{{ plot_html | safe }}</div>
+    <h2>Marks in Different Subjects CBSE</h2>
+    <div>{{ school_plot_html | safe }}</div>
+    <h2>School Marks Gained Overtime</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>English</th>
+            <th>IP</th>
+        </tr>
+        {% for record in school_data %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['ENGLISH'] }}</td>
+            <td>{{ record['IP'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>JEE/Mains-Advance Records</h2>
+    <div>{{ jee_plot_html | safe }}</div>
+    <h2>JEE/Advance Test Marks Gained Overtime</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>Total</th>
+        </tr>
+        {% for record in jee_data %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['TOTAL'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2>Daily Status Updates</h2>
+    <table border="1">
+        <tr>
+            <th>Date</th>
+            <th>Physics</th>
+            <th>Chemistry</th>
+            <th>Maths</th>
+            <th>English</th>
+            <th>Informatics Practices</th>
+            <th>General Notes</th>
+        </tr>
+        {% for record in daily_updates %}
+        <tr>
+            <td>{{ record['DATE'] }}</td>
+            <td>{{ record['PHYSICS'] }}</td>
+            <td>{{ record['CHEMISTRY'] }}</td>
+            <td>{{ record['MATHS'] }}</td>
+            <td>{{ record['ENGLISH'] }}</td>
+            <td>{{ record['INFORMATICS PRACTICES'] }}</td>
+            <td>{{ record['GENERAL NOTES'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/">Back to Choose Plot Type</a>
+</body>
+</html>

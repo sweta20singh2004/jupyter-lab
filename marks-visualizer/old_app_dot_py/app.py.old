@@ -1,0 +1,56 @@
+from flask import Flask, render_template
+import matplotlib.pyplot as plt
+import pandas as pd
+import io
+import base64
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    # Manually provided data
+    dates = ['2023-01-01', '2023-02-01', '2023-03-01']
+    physics = [85, 90, 78]
+    chemistry = [88, 85, 80]
+    maths = [95, 89, 92]
+    english = [75, 80, 78]
+    ip = [80, 82, 85]
+
+    # Creating a dataframe with the provided data
+    data = {
+        'DATE': pd.to_datetime(dates),
+        'PHYSICS': physics,
+        'CHEMISTRY': chemistry,
+        'MATHS': maths,
+        'ENGLISH': english,
+        'IP': ip
+    }
+    df = pd.DataFrame(data)
+
+    # Plotting the data
+    fig, ax = plt.subplots(figsize=(14, 7))
+    ax.plot(df['DATE'], df['PHYSICS'], marker='o', label='PHYSICS')
+    ax.plot(df['DATE'], df['CHEMISTRY'], marker='o', label='CHEMISTRY')
+    ax.plot(df['DATE'], df['MATHS'], marker='o', label='MATHS')
+    ax.plot(df['DATE'], df['ENGLISH'], marker='o', label='ENGLISH')
+    ax.plot(df['DATE'], df['IP'], marker='o', label='IP')
+
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Marks')
+    ax.set_title('Marks in Different Subjects Over Time')
+    ax.legend()
+    ax.grid(True)
+    ax.tick_params(axis='x', rotation=45)
+    plt.tight_layout()
+
+    # Save it to a temporary buffer
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+
+    # Embed the result in the html output.
+    data = base64.b64encode(buf.read()).decode('ascii')
+    return f'<img src="data:image/png;base64,{data}"/>'
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5007)

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Visualization</title>
+</head>
+<body>
+<h1>Marks in Different Subjects Over Time</h1>
+<form action="/plot" method="post">
+    <label for="plot_type">Choose plot type:</label>
+    <select id="plot_type" name="plot_type">
+        <option value="static">Static</option>
+        <option value="interactive">Interactive</option>
+    </select>
+    <label for="theme">Choose theme:</label>
+    <select id="theme" name="theme">
+        <option value="light">Light</option>
+        <option value="dark">Dark</option>
+    </select>
+    <input type="submit" value="Generate Plot">
+</form>
+<br>
+<a href="/login">Admin Login</a>
+</body>
+</html>
