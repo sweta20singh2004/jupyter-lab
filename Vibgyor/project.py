@@ -27,7 +27,7 @@ else:
 
 if not os.path.exists("customer.csv"):
     # Creating a sample customer.csv if it doesn't exist
-    bf = pd.DataFrame(columns=["name", "date", "order_amt", "sweet_name"])
+    bf = pd.DataFrame(columns=["bill_id", "name", "date", "order_amt", "sweet_name"])
     bf.to_csv("customer.csv", index=False)
 
 else:
@@ -102,15 +102,16 @@ while True:
                 new_bill_id = datetime.now().timestamp()#random.randint(1000, 9999)
                 # bf.loc[new_bill_id] = [name, bdate, amt, df.loc[code, "Name"]]
                 bf.loc[new_bill_id] = {
+                    'bill_id': new_bill_id,
                     'name': name,
                     'date': bdate,
                     'order_amt': amt,
                     'sweet_name': df.loc[code, "Name"]
                 }
-                # bf.to_csv("customer.csv", index_label="bill_id")
+                bf.to_csv("customer.csv", index_label="bill_id")
                 print(f"Bill generated with Bill ID {new_bill_id}")
                 # Append the new bill to bf
-                bf = pd.concat([bf, pd.DataFrame([new_bill_id])], ignore_index=True)
+                # bf = pd.concat([bf, pd.DataFrame([new_bill_id])], ignore_index=True)
     
                 # Save updated customer DataFrame to CSV
                 bf.to_csv("customer.csv", index=False)

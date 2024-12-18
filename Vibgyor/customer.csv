@@ -1,5 +1,2 @@
-name,date,order_amt,sweet_name,0
-321,312,200.0,Motichur,
-,,,,1734536282.999352
-Dhirendra,2012-23-12,2000.0,Kaju Katli,
-,,,,1734536326.863954
+bill_id,name,date,order_amt,sweet_name
+1734536673.586602,123,123,200,Motichur
