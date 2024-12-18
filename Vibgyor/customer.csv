@@ -1,7 +1,5 @@
-bill_id,Unnamed: 0,bill_id,name,date,order_amt,sweet_name
-0.0,0.0,1734534034.586689,Rudhra Singh,2024-11-20,6000,Barfi
-1.0,1.0,1734535026.318253,Sweta,2000-12-11,3000,Barfi
-2.0,2.0,,Test Singh,2012-12-12,2000,Kaju Katli
-3.0,1734535511.471749,,D Singh,2012-12-12,4000,Kaju Katli
-4.0,,,Singh D,2012-12-12,2000,Kaju Katli
-1734535836.777663,,,Dhirendra Singh,2012-12-12,200,Motichur
+name,date,order_amt,sweet_name,0
+321,312,200.0,Motichur,
+,,,,1734536282.999352
+Dhirendra,2012-23-12,2000.0,Kaju Katli,
+,,,,1734536326.863954
