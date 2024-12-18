@@ -12,6 +12,7 @@ def addSweet(df):
     qty = float(input("Enter quantity in kgs "))
     ig = input("Enter the main ingredient ")
     df.loc[code] = [name, cost, qty, ig]
+    df.to_csv("sweets.csv", index=False)
     print("\nAdded Successfully \n")
 
 
@@ -99,7 +100,13 @@ while True:
                 df.loc[code, "Qty"] -= qty
                 # Add bill data to customer.csv
                 new_bill_id = datetime.now().timestamp()#random.randint(1000, 9999)
-                bf.loc[new_bill_id] = [name, bdate, amt, df.loc[code, "Name"]]
+                # bf.loc[new_bill_id] = [name, bdate, amt, df.loc[code, "Name"]]
+                bf.loc[new_bill_id] = {
+                    'name': name,
+                    'date': bdate,
+                    'order_amt': amt,
+                    'sweet_name': df.loc[code, "Name"]
+                }
                 bf.to_csv("customer.csv", index_label="bill_id")
                 print(f"Bill generated with Bill ID {new_bill_id}")
             else:
