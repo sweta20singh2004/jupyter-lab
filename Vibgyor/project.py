@@ -99,8 +99,7 @@ while True:
                 # Add new sweets data back to inventory
                 df.loc[code, "Qty"] -= qty
                 # Add bill data to customer.csv
-                new_bill_id = datetime.now().timestamp()#random.randint(1000, 9999)
-                # bf.loc[new_bill_id] = [name, bdate, amt, df.loc[code, "Name"]]
+                new_bill_id = datetime.now().timestamp()
                 bf.loc[new_bill_id] = {
                     'bill_id': new_bill_id,
                     'name': name,
@@ -110,8 +109,6 @@ while True:
                 }
                 bf.to_csv("customer.csv", index_label="bill_id")
                 print(f"Bill generated with Bill ID {new_bill_id}")
-                # Append the new bill to bf
-                # bf = pd.concat([bf, pd.DataFrame([new_bill_id])], ignore_index=True)
     
                 # Save updated customer DataFrame to CSV
                 bf.to_csv("customer.csv", index=False)
