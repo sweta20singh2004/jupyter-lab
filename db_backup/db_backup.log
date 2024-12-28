@@ -75,3 +75,4 @@ Backup for container firefly_iii_db completed and stored in /media/hanisntsolo/W
 mysqldump: [Warning] Using a password on the command line interface can be insecure.
 Backup for container jupyter_db completed and stored in /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/jupyter-lab/db_backup/jupyter_db_2024-12-28_00:00:01.sql.
 Old backups older than 30 days have been deleted.
+Backup script started at Sunday 29 December 2024 12:00:01 AM IST
