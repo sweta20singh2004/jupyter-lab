@@ -352,7 +352,7 @@ UNLOCK TABLES;
 --
 
 /*!40000 ALTER TABLE `innodb_index_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_diff_pfx01',10,1,'Code'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','size',1,NULL,'Number of pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_diff_pfx01',5,1,'PID'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','size',1,NULL,'Number of pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_diff_pfx01',10,1,'Code'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','size',1,NULL,'Number of pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','size',1,NULL,'Number of pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_diff_pfx01',10,1,'employee_id'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_diff_pfx01',8,1,'Student_id'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
+INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','ACE','PRIMARY','2024-12-12 15:20:49','n_diff_pfx01',8,1,'T_ID'),('sweta','ACE','PRIMARY','2024-12-12 15:20:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','ACE','PRIMARY','2024-12-12 15:20:49','size',1,NULL,'Number of pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_diff_pfx01',10,1,'Code'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','size',1,NULL,'Number of pages in the index'),('sweta','BLOCKCHAIN','PRIMARY','2024-12-12 17:48:11','n_diff_pfx01',6,1,'ID'),('sweta','BLOCKCHAIN','PRIMARY','2024-12-12 17:48:11','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','BLOCKCHAIN','PRIMARY','2024-12-12 17:48:11','size',1,NULL,'Number of pages in the index'),('sweta','EMPLOYEE','PRIMARY','2024-12-12 18:17:09','n_diff_pfx01',6,1,'EMPL_ID'),('sweta','EMPLOYEE','PRIMARY','2024-12-12 18:17:09','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','EMPLOYEE','PRIMARY','2024-12-12 18:17:09','size',1,NULL,'Number of pages in the index'),('sweta','Exam','PRIMARY','2024-12-12 15:16:17','n_diff_pfx01',6,1,'Reg_No'),('sweta','Exam','PRIMARY','2024-12-12 15:16:17','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Exam','PRIMARY','2024-12-12 15:16:17','size',1,NULL,'Number of pages in the index'),('sweta','NOBEL','PRIMARY','2024-12-12 15:42:07','n_diff_pfx01',7,1,'Winner_id'),('sweta','NOBEL','PRIMARY','2024-12-12 15:42:07','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','NOBEL','PRIMARY','2024-12-12 15:42:07','size',1,NULL,'Number of pages in the index'),('sweta','POSTING','PRIMARY','2024-12-12 15:22:29','n_diff_pfx01',3,1,'P_ID'),('sweta','POSTING','PRIMARY','2024-12-12 15:22:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','POSTING','PRIMARY','2024-12-12 15:22:29','size',1,NULL,'Number of pages in the index'),('sweta','PRO','PRIMARY','2024-12-12 17:59:01','n_diff_pfx01',6,1,'PCODE'),('sweta','PRO','PRIMARY','2024-12-12 17:59:01','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','PRO','PRIMARY','2024-12-12 17:59:01','size',1,NULL,'Number of pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_diff_pfx01',5,1,'PID'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','size',1,NULL,'Number of pages in the index'),('sweta','REWARD','PRIMARY','2024-12-12 18:12:59','n_diff_pfx01',4,1,'EMPL_ID'),('sweta','REWARD','PRIMARY','2024-12-12 18:12:59','n_diff_pfx02',4,1,'EMPL_ID,DATE_REWARD'),('sweta','REWARD','PRIMARY','2024-12-12 18:12:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','REWARD','PRIMARY','2024-12-12 18:12:59','size',1,NULL,'Number of pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_diff_pfx01',10,1,'Code'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','size',1,NULL,'Number of pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','size',1,NULL,'Number of pages in the index'),('sweta','TEACHER','PRIMARY','2024-12-12 18:42:07','n_diff_pfx01',8,1,'T_ID'),('sweta','TEACHER','PRIMARY','2024-12-12 18:42:07','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','TEACHER','PRIMARY','2024-12-12 18:42:07','size',1,NULL,'Number of pages in the index'),('sweta','analyst','PRIMARY','2024-12-12 15:05:10','n_diff_pfx01',10,1,'Reg_No'),('sweta','analyst','PRIMARY','2024-12-12 15:05:10','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','analyst','PRIMARY','2024-12-12 15:05:10','size',1,NULL,'Number of pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_diff_pfx01',10,1,'employee_id'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_diff_pfx01',8,1,'Student_id'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
 /*!40000 ALTER TABLE `innodb_index_stats` ENABLE KEYS */;
 
 --
@@ -360,7 +360,7 @@ INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','
 --
 
 /*!40000 ALTER TABLE `innodb_table_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','Admin','2024-11-12 12:35:59',10,1,0),('sweta','PRODUCT','2024-12-01 16:14:32',5,1,0),('sweta','School','2024-11-12 12:35:18',10,1,0),('sweta','Student','2024-11-12 12:12:29',8,1,0),('sweta','employees','2024-11-12 12:28:38',10,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sweta','student','2024-12-01 16:21:19',8,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
+INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','ACE','2024-12-12 15:20:49',8,1,0),('sweta','Admin','2024-11-12 12:35:59',10,1,0),('sweta','BLOCKCHAIN','2024-12-12 17:48:11',6,1,0),('sweta','EMPLOYEE','2024-12-12 18:17:09',6,1,0),('sweta','Exam','2024-12-12 15:16:17',6,1,0),('sweta','NOBEL','2024-12-12 15:42:07',7,1,0),('sweta','POSTING','2024-12-12 15:22:29',3,1,0),('sweta','PRO','2024-12-12 17:59:01',6,1,0),('sweta','PRODUCT','2024-12-01 16:14:32',5,1,0),('sweta','REWARD','2024-12-12 18:12:59',4,1,0),('sweta','School','2024-11-12 12:35:18',10,1,0),('sweta','Student','2024-11-12 12:12:29',8,1,0),('sweta','TEACHER','2024-12-12 18:42:07',8,1,0),('sweta','analyst','2024-12-12 15:05:10',10,1,0),('sweta','employees','2024-11-12 12:28:38',10,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sweta','student','2024-12-01 16:21:19',8,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
 /*!40000 ALTER TABLE `innodb_table_stats` ENABLE KEYS */;
 
 --
@@ -1081,6 +1081,35 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sweta` /*!40100 DEFAULT CHARACTER SET 
 USE `sweta`;
 
 --
+-- Table structure for table `ACE`
+--
+
+DROP TABLE IF EXISTS `ACE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ACE` (
+  `T_ID` int NOT NULL,
+  `Name` varchar(100) DEFAULT NULL,
+  `Age` int DEFAULT NULL,
+  `Department` varchar(50) DEFAULT NULL,
+  `Date_of_join` date DEFAULT NULL,
+  `Salary` decimal(10,2) DEFAULT NULL,
+  `Gender` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`T_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ACE`
+--
+
+LOCK TABLES `ACE` WRITE;
+/*!40000 ALTER TABLE `ACE` DISABLE KEYS */;
+INSERT INTO `ACE` VALUES (1,'Ravi Kumar',45,'Mathematics','2010-06-15',55000.50,'Male'),(2,'Neelam Rani',38,'Science','2015-08-22',48000.75,'Female'),(3,'Ajay Singh',50,'History','2008-04-10',60000.00,'Male'),(4,'Shalini Gupta',32,'English','2017-03-05',45000.25,'Female'),(5,'Vikas Mehra',40,'Computer Science','2012-01-19',65000.00,'Male'),(6,'Priya Desai',35,'Social Studies','2016-07-28',47000.80,'Female'),(7,'Anil Joshi',55,'Physics','2005-11-11',72000.30,'Male'),(8,'Sneha Patil',29,'Chemistry','2019-09-01',43000.90,'Female');
+/*!40000 ALTER TABLE `ACE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Admin`
 --
 
@@ -1103,6 +1132,168 @@ LOCK TABLES `Admin` WRITE;
 /*!40000 ALTER TABLE `Admin` DISABLE KEYS */;
 INSERT INTO `Admin` VALUES (1,'Male','Principal'),(2,'Female','Vice-Principal'),(3,'Male','School Secretary'),(4,'Female','Registrar'),(5,'Male','Accountant'),(6,'Female','Admissions Officer'),(7,'Male','IT Coordinator'),(8,'Female','Librarian'),(9,'Male','Sports Coordinator'),(10,'Female','Counselor');
 /*!40000 ALTER TABLE `Admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `BLOCKCHAIN`
+--
+
+DROP TABLE IF EXISTS `BLOCKCHAIN`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `BLOCKCHAIN` (
+  `ID` int NOT NULL,
+  `USER` varchar(100) DEFAULT NULL,
+  `VALUE` decimal(15,2) DEFAULT NULL,
+  `HASH` varchar(5) DEFAULT NULL,
+  `TRANSACTION_DATE` date DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `BLOCKCHAIN`
+--
+
+LOCK TABLES `BLOCKCHAIN` WRITE;
+/*!40000 ALTER TABLE `BLOCKCHAIN` DISABLE KEYS */;
+INSERT INTO `BLOCKCHAIN` VALUES (1,'Ravi Kumar',5000.75,'8@3#1','2024-12-01'),(2,'Priya Sharma',12000.50,'4$1*2','2024-12-02'),(3,'Ajay Singh',2500.00,'9#8!5','2024-12-03'),(4,'Sneha Desai',8500.60,'3&0@6','2024-12-04'),(5,'Vikas Patel',3400.20,'1$7^3','2024-12-05'),(6,'Aarti Rani',17500.30,'6*7@9','2024-12-06');
+/*!40000 ALTER TABLE `BLOCKCHAIN` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `EMPLOYEE`
+--
+
+DROP TABLE IF EXISTS `EMPLOYEE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `EMPLOYEE` (
+  `EMPL_ID` int NOT NULL,
+  `FIRST_NAME` varchar(100) DEFAULT NULL,
+  `LAST_NAME` varchar(100) DEFAULT NULL,
+  `SALARY` decimal(10,2) DEFAULT NULL,
+  `JOINING_DATE` date DEFAULT NULL,
+  `DEPARTMENT` varchar(100) DEFAULT NULL,
+  `EXPERIENCE` int DEFAULT NULL,
+  PRIMARY KEY (`EMPL_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `EMPLOYEE`
+--
+
+LOCK TABLES `EMPLOYEE` WRITE;
+/*!40000 ALTER TABLE `EMPLOYEE` DISABLE KEYS */;
+INSERT INTO `EMPLOYEE` VALUES (1,'Ravi','Sharma',50000.00,'2015-03-20','Finance',NULL),(2,'Priya','Gupta',60000.50,'2018-07-15','Marketing',NULL),(3,'Amit','Verma',45000.75,'2020-01-10','IT',NULL),(4,'Sneha','Desai',55000.00,'2017-06-05','HR',NULL),(5,'Vikas','Patel',65000.25,'2019-09-22','Sales',NULL),(6,'Anjali','Rao',47000.30,'2021-11-01','IT',NULL);
+/*!40000 ALTER TABLE `EMPLOYEE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `Exam`
+--
+
+DROP TABLE IF EXISTS `Exam`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Exam` (
+  `Reg_No` int NOT NULL,
+  `Name` varchar(100) DEFAULT NULL,
+  `Subject` varchar(50) DEFAULT NULL,
+  `Marks` int DEFAULT NULL,
+  `Grade` varchar(5) DEFAULT NULL,
+  PRIMARY KEY (`Reg_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Exam`
+--
+
+LOCK TABLES `Exam` WRITE;
+/*!40000 ALTER TABLE `Exam` DISABLE KEYS */;
+INSERT INTO `Exam` VALUES (6,'Khushi Raj','Informatics Practices',85,NULL),(101,'Rahul Sharma','Mathematics',85,NULL),(102,'Priya Gupta','Physics',78,NULL),(103,'Amit Verma','Chemistry',92,NULL),(104,'Sanya Rao','Biology',88,NULL),(105,'Arjun Patel','English',79,NULL);
+/*!40000 ALTER TABLE `Exam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `NOBEL`
+--
+
+DROP TABLE IF EXISTS `NOBEL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `NOBEL` (
+  `Winner_id` int NOT NULL,
+  `Year` int DEFAULT NULL,
+  `Subject` varchar(100) DEFAULT NULL,
+  `Winner` varchar(100) DEFAULT NULL,
+  `Country` varchar(100) DEFAULT NULL,
+  `Category` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`Winner_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `NOBEL`
+--
+
+LOCK TABLES `NOBEL` WRITE;
+/*!40000 ALTER TABLE `NOBEL` DISABLE KEYS */;
+INSERT INTO `NOBEL` VALUES (1,2022,'Physics','Alain Aspect','France','Experimental Physics'),(2,2021,'Chemistry','Benjamin List','Germany','Organic Chemistry'),(3,2020,'Peace','World Food Programme','International','Humanitarian'),(4,2019,'Literature','Peter Handke','Austria','Literary Achievement'),(5,2018,'Economics','William D. Nordhaus','United States','Environmental Economics'),(6,2017,'Medicine','Jeffrey C. Hall','United States','Physiology or Medicine'),(7,2016,'Peace','Juan Manuel Santos','Colombia','Peace Negotiations');
+/*!40000 ALTER TABLE `NOBEL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `POSTING`
+--
+
+DROP TABLE IF EXISTS `POSTING`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `POSTING` (
+  `P_ID` int NOT NULL,
+  `Department` varchar(100) DEFAULT NULL,
+  `Place` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`P_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `POSTING`
+--
+
+LOCK TABLES `POSTING` WRITE;
+/*!40000 ALTER TABLE `POSTING` DISABLE KEYS */;
+INSERT INTO `POSTING` VALUES (1,'Mathematics','Delhi'),(2,'Computer Science','Bangalore'),(3,'History','Mumbai');
+/*!40000 ALTER TABLE `POSTING` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `PRO`
+--
+
+DROP TABLE IF EXISTS `PRO`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `PRO` (
+  `PCODE` int NOT NULL,
+  `PNAME` varchar(100) DEFAULT NULL,
+  `UPRICE` decimal(10,2) DEFAULT NULL,
+  `MANUFACTURER` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`PCODE`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `PRO`
+--
+
+LOCK TABLES `PRO` WRITE;
+/*!40000 ALTER TABLE `PRO` DISABLE KEYS */;
+INSERT INTO `PRO` VALUES (101,'Rice',45.50,'Tata'),(102,'Wheat Flour',35.75,'Shakti Bhog'),(103,'Sugar',42.00,'Dharmani'),(104,'Salt',15.00,'Tata Salt'),(105,'Tea Powder',85.25,'Tata Tea'),(106,'Cooking Oil',120.99,'Fortune');
+/*!40000 ALTER TABLE `PRO` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1129,6 +1320,32 @@ LOCK TABLES `PRODUCT` WRITE;
 /*!40000 ALTER TABLE `PRODUCT` DISABLE KEYS */;
 INSERT INTO `PRODUCT` VALUES ('BS01','Bath Soap','PQR',65),('FW05','Face Wash','ABC',55),('FW12','Face Wash','XYZ',105),('SH06','Shampoo','XYZ',130),('TP01','Talcum Powder','LAK',50);
 /*!40000 ALTER TABLE `PRODUCT` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `REWARD`
+--
+
+DROP TABLE IF EXISTS `REWARD`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `REWARD` (
+  `EMPL_ID` int NOT NULL,
+  `DATE_REWARD` date NOT NULL,
+  `AMOUNT` int DEFAULT NULL,
+  PRIMARY KEY (`EMPL_ID`,`DATE_REWARD`),
+  CONSTRAINT `REWARD_ibfk_1` FOREIGN KEY (`EMPL_ID`) REFERENCES `EMPLOYEE` (`EMPL_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `REWARD`
+--
+
+LOCK TABLES `REWARD` WRITE;
+/*!40000 ALTER TABLE `REWARD` DISABLE KEYS */;
+INSERT INTO `REWARD` VALUES (1,'2024-01-15',1500),(2,'2024-03-22',2000),(3,'2024-02-10',1200),(4,'2024-04-05',1800);
+/*!40000 ALTER TABLE `REWARD` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1185,6 +1402,62 @@ LOCK TABLES `Student` WRITE;
 /*!40000 ALTER TABLE `Student` DISABLE KEYS */;
 INSERT INTO `Student` VALUES (1,'Anand','XI','1997-06-06','M','Agra',430),(2,'Chetan','XII','1994-05-07','M','Mumbai',460),(3,'Geet','XI','1997-06-05','F','Agra',470),(4,'Preeti','XII','1995-08-08','F','Mumbai',492),(5,'Saniyal','XII','1995-10-08','M','Delhi',360),(6,'Maakhiy','XI','1994-12-12','F','Dubai',256),(7,'Neha','X','1995-12-08','F','Moscow',324),(8,'Nishant','X','1995-06-12','M','Moscow',429);
 /*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TEACHER`
+--
+
+DROP TABLE IF EXISTS `TEACHER`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `TEACHER` (
+  `T_ID` int NOT NULL,
+  `NAME` varchar(100) DEFAULT NULL,
+  `AGE` int DEFAULT NULL,
+  `DEPARTMENT` varchar(100) DEFAULT NULL,
+  `DATE_OF_JOIN` date DEFAULT NULL,
+  `SALARY` decimal(10,2) DEFAULT NULL,
+  `GENDER` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`T_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TEACHER`
+--
+
+LOCK TABLES `TEACHER` WRITE;
+/*!40000 ALTER TABLE `TEACHER` DISABLE KEYS */;
+INSERT INTO `TEACHER` VALUES (1,'Dr. Ravi Kumar',45,'Computer Science','2010-06-15',80000.00,'Male'),(2,'Prof. Priya Sharma',38,'Mathematics','2015-08-23',75000.00,'Female'),(3,'Mr. Amit Verma',40,'Physics','2012-04-10',70000.00,'Male'),(4,'Dr. Sneha Gupta',42,'Chemistry','2011-02-05',72000.00,'Female'),(5,'Prof. Vikas Patel',50,'Biology','2008-07-19',85000.00,'Male'),(6,'Dr. Anjali Rao',35,'English','2016-09-11',69000.00,'Female'),(7,'Mr. Raj Singh',48,'History','2009-11-30',74000.00,'Male'),(8,'Prof. Neha Desai',41,'Geography','2014-01-20',76000.00,'Female');
+/*!40000 ALTER TABLE `TEACHER` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `analyst`
+--
+
+DROP TABLE IF EXISTS `analyst`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `analyst` (
+  `Reg_No` int NOT NULL,
+  `SName` varchar(100) DEFAULT NULL,
+  `Stream` varchar(50) DEFAULT NULL,
+  `Optional` varchar(50) DEFAULT NULL,
+  `Marks` int DEFAULT NULL,
+  PRIMARY KEY (`Reg_No`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `analyst`
+--
+
+LOCK TABLES `analyst` WRITE;
+/*!40000 ALTER TABLE `analyst` DISABLE KEYS */;
+INSERT INTO `analyst` VALUES (101,'Alice Johnson','Science','Computer Science',85),(102,'Bob Smith','Commerce','Economics',78),(103,'Charlie Brown','Arts','Psychology',92),(104,'Diana White','Science','Mathematics',88),(105,'Eva Black','Commerce','Business Studies',75),(106,'Frank Green','Science','Biology',80),(107,'Grace Lewis','Arts','Sociology',91),(108,'Henry Walker','Commerce','Accountancy',84),(109,'Ivy Turner','Science','Chemistry',79),(110,'Jack Harris','Arts','Philosophy',87);
+/*!40000 ALTER TABLE `analyst` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1279,4 +1552,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-12-08 18:30:02
+-- Dump completed on 2025-01-08 18:30:03
