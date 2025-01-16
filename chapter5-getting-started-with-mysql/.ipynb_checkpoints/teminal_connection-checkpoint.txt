@@ -1,2 +1,4 @@
-mysql -u jovyan -p -h 180.233.121.154 -P 18033 -D hanisntsolo
-mysql -u jovyan -ppassword -h 180.233.121.154 -P 18033 -D sweta
+mysql -u jovyan -p -h 180.233.120.124 -P 18033 -D hanisntsolo
+mysql -u jovyan -ppassword -h 180.233.120.124 -P 18033 -D sweta
+
+
