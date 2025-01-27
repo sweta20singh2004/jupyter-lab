@@ -286,3 +286,9 @@ mysqldump: [Warning] Using a password on the command line interface can be insec
 Backup for container jupyter_db completed and stored in /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/jupyter-lab/db_backup/jupyter_db_2025-01-27_00:00:01.sql.
 Old backups older than 30 days have been deleted.
 Backup script started at Tuesday 28 January 2025 12:00:01 AM IST
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+mysqldump: Got error: 1045: Access denied for user 'root'@'localhost' (using password: YES) when trying to connect
+Backup for container firefly_iii_db completed and stored in /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/jupyter-lab/db_backup/firefly_iii_db_2025-01-28_00:00:01.sql.
+mysqldump: [Warning] Using a password on the command line interface can be insecure.
+Backup for container jupyter_db completed and stored in /media/hanisntsolo/WDBlue_ssd_hanis/docker/volumes/jupyter/notebooks/jupyter-lab/db_backup/jupyter_db_2025-01-28_00:00:01.sql.
+Old backups older than 30 days have been deleted.
