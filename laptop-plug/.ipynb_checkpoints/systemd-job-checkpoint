@@ -1,0 +1,15 @@
+(venv) hanisntsolo@hanisntsolo-OMEN-by-HP-Laptop-15-dc1xxx:~/laptop_plug$ cat /etc/systemd/system/laptop.service
+[Unit]
+Description=Run Laptop Python Script
+After=network.target
+
+[Service]
+WorkingDirectory=/home/hanisntsolo/laptop_plug
+EnvironmentFile=/home/hanisntsolo/laptop_plug/.env
+ExecStart=/home/hanisntsolo/laptop_plug/venv/bin/python /home/hanisntsolo/laptop_plug/laptop.py
+Restart=always
+User=hanisntsolo
+
+[Install]
+WantedBy=multi-user.target
+(venv) hanisntsolo@hanisntsolo-OMEN-by-HP-Laptop-15-dc1xxx:~/laptop_plug$ 

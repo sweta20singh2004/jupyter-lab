@@ -4,18 +4,17 @@ services:
   flask_app:
     build: .
     restart: always
-    container_name: codeforces_lamp
+    container_name: laptop_plug
     deploy:
       resources:
         limits:
           cpus: '1.0'
           memory: 512M
     ports:
-      - "5008:5008"
+      - "5009:5009"
     environment:
-      - CODEFORCES_API_KEY=${CODEFORCES_API_KEY}
-      - CODEFORCES_API_SECRET=${CODEFORCES_API_SECRET}
       - TUYA_ACCESS_ID=${TUYA_ACCESS_ID}
       - TUYA_ACCESS_KEY=${TUYA_ACCESS_KEY}
       - TUYA_BULB_ID=${TUYA_BULB_ID}
-      - LAB_LOG_FILE_PATH=/logs/codeforces_lamp.log
+      - TUYA_LAPTOP_ID=${TUYA_LAPTOP_ID}
+      - LAB_LOG_FILE_PATH=/logs/laptop_plug.log

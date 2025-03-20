@@ -3,3 +3,4 @@ python-dotenv
 tuya-connector-python
 pytz
 dotenv
+psutil
