@@ -352,7 +352,7 @@ UNLOCK TABLES;
 --
 
 /*!40000 ALTER TABLE `innodb_index_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_diff_pfx01',10,1,'Code'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','size',1,NULL,'Number of pages in the index'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','n_diff_pfx01',10,1,'DB_ROW_ID'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','size',1,NULL,'Number of pages in the index'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','n_diff_pfx01',6,1,'DB_ROW_ID'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','size',1,NULL,'Number of pages in the index'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','size',1,NULL,'Number of pages in the index'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','size',1,NULL,'Number of pages in the index'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','n_diff_pfx01',5,1,'Place'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','size',1,NULL,'Number of pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_diff_pfx01',5,1,'PID'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','size',1,NULL,'Number of pages in the index'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','n_diff_pfx01',12,1,'RCODE'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','size',1,NULL,'Number of pages in the index'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','size',1,NULL,'Number of pages in the index'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','n_diff_pfx01',6,1,'DB_ROW_ID'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','size',1,NULL,'Number of pages in the index'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','n_diff_pfx01',7,1,'ItemNo'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','size',1,NULL,'Number of pages in the index'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','n_diff_pfx01',10,1,'DB_ROW_ID'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','size',1,NULL,'Number of pages in the index'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','n_diff_pfx01',3,1,'Scode'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','size',1,NULL,'Number of pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_diff_pfx01',10,1,'Code'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','size',1,NULL,'Number of pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','size',1,NULL,'Number of pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_diff_pfx01',10,1,'employee_id'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_diff_pfx01',8,1,'Student_id'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
+INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','2024-08-28 17:57:38','n_diff_pfx01',0,1,'component_id'),('mysql','component','PRIMARY','2024-08-28 17:57:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('mysql','component','PRIMARY','2024-08-28 17:57:38','size',1,NULL,'Number of pages in the index'),('sweta','ACE','GEN_CLUST_INDEX','2025-03-27 20:13:27','n_diff_pfx01',10,1,'DB_ROW_ID'),('sweta','ACE','GEN_CLUST_INDEX','2025-03-27 20:13:27','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','ACE','GEN_CLUST_INDEX','2025-03-27 20:13:27','size',1,NULL,'Number of pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_diff_pfx01',10,1,'Code'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Admin','PRIMARY','2024-11-12 12:35:59','size',1,NULL,'Number of pages in the index'),('sweta','AgentDetails','GEN_CLUST_INDEX','2025-03-27 19:07:08','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','AgentDetails','GEN_CLUST_INDEX','2025-03-27 19:07:08','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','AgentDetails','GEN_CLUST_INDEX','2025-03-27 19:07:08','size',1,NULL,'Number of pages in the index'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','n_diff_pfx01',10,1,'DB_ROW_ID'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','CLUB','GEN_CLUST_INDEX','2025-03-23 11:17:19','size',1,NULL,'Number of pages in the index'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','n_diff_pfx01',6,1,'DB_ROW_ID'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','FITNESS','GEN_CLUST_INDEX','2025-03-23 10:33:12','size',1,NULL,'Number of pages in the index'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','GYM','GEN_CLUST_INDEX','2025-03-23 10:28:48','size',1,NULL,'Number of pages in the index'),('sweta','ITEM','GEN_CLUST_INDEX','2025-03-27 19:49:43','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','ITEM','GEN_CLUST_INDEX','2025-03-27 19:49:43','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','ITEM','GEN_CLUST_INDEX','2025-03-27 19:49:43','size',1,NULL,'Number of pages in the index'),('sweta','ITEM_BRAND','GEN_CLUST_INDEX','2025-03-27 19:49:50','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','ITEM_BRAND','GEN_CLUST_INDEX','2025-03-27 19:49:50','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','ITEM_BRAND','GEN_CLUST_INDEX','2025-03-27 19:49:50','size',1,NULL,'Number of pages in the index'),('sweta','KAJAL','GEN_CLUST_INDEX','2025-03-30 10:03:37','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','KAJAL','GEN_CLUST_INDEX','2025-03-30 10:03:37','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','KAJAL','GEN_CLUST_INDEX','2025-03-30 10:03:37','size',1,NULL,'Number of pages in the index'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','LOCATION','GEN_CLUST_INDEX','2025-03-27 16:19:02','size',1,NULL,'Number of pages in the index'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','n_diff_pfx01',5,1,'Place'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','OWNEDBY','PRIMARY','2025-03-23 07:59:47','size',1,NULL,'Number of pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_diff_pfx01',5,1,'PID'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','PRODUCT','PRIMARY','2024-12-01 16:14:32','size',1,NULL,'Number of pages in the index'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','n_diff_pfx01',12,1,'RCODE'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','RESORT','PRIMARY','2025-03-23 07:41:12','size',1,NULL,'Number of pages in the index'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SALES','GEN_CLUST_INDEX','2025-03-27 16:16:39','size',1,NULL,'Number of pages in the index'),('sweta','SAMS','GEN_CLUST_INDEX','2025-03-27 19:28:00','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','SAMS','GEN_CLUST_INDEX','2025-03-27 19:28:00','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SAMS','GEN_CLUST_INDEX','2025-03-27 19:28:00','size',1,NULL,'Number of pages in the index'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','n_diff_pfx01',6,1,'DB_ROW_ID'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SHOP','GEN_CLUST_INDEX','2025-03-23 07:18:37','size',1,NULL,'Number of pages in the index'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','n_diff_pfx01',7,1,'ItemNo'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','STORE','PRIMARY','2025-03-23 06:57:44','size',1,NULL,'Number of pages in the index'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','n_diff_pfx01',10,1,'DB_ROW_ID'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','STUDENT1','GEN_CLUST_INDEX','2025-03-23 11:46:20','size',1,NULL,'Number of pages in the index'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','n_diff_pfx01',3,1,'Scode'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SUPPLIERS','PRIMARY','2025-03-23 07:00:49','size',1,NULL,'Number of pages in the index'),('sweta','SWETA','GEN_CLUST_INDEX','2025-03-30 05:31:01','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','SWETA','GEN_CLUST_INDEX','2025-03-30 05:31:01','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','SWETA','GEN_CLUST_INDEX','2025-03-30 05:31:01','size',1,NULL,'Number of pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_diff_pfx01',10,1,'Code'),('sweta','School','PRIMARY','2024-11-12 12:35:18','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','School','PRIMARY','2024-11-12 12:35:18','size',1,NULL,'Number of pages in the index'),('sweta','Stream','GEN_CLUST_INDEX','2025-03-27 20:46:39','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','Stream','GEN_CLUST_INDEX','2025-03-27 20:46:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Stream','GEN_CLUST_INDEX','2025-03-27 20:46:39','size',1,NULL,'Number of pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_diff_pfx01',8,1,'DB_ROW_ID'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','Student','GEN_CLUST_INDEX','2024-11-12 12:12:29','size',1,NULL,'Number of pages in the index'),('sweta','TICKETDETAILS','GEN_CLUST_INDEX','2025-03-27 19:03:46','n_diff_pfx01',5,1,'DB_ROW_ID'),('sweta','TICKETDETAILS','GEN_CLUST_INDEX','2025-03-27 19:03:46','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','TICKETDETAILS','GEN_CLUST_INDEX','2025-03-27 19:03:46','size',1,NULL,'Number of pages in the index'),('sweta','VENDOR','GEN_CLUST_INDEX','2025-03-27 19:29:56','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','VENDOR','GEN_CLUST_INDEX','2025-03-27 19:29:56','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','VENDOR','GEN_CLUST_INDEX','2025-03-27 19:29:56','size',1,NULL,'Number of pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_diff_pfx01',10,1,'employee_id'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','employees','PRIMARY','2024-11-12 12:28:38','size',1,NULL,'Number of pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_diff_pfx01',4,1,'DB_ROW_ID'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','marks','GEN_CLUST_INDEX','2024-10-25 14:06:49','size',1,NULL,'Number of pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_diff_pfx01',8,1,'Student_id'),('sweta','student','PRIMARY','2024-12-01 16:21:19','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sweta','student','PRIMARY','2024-12-01 16:21:19','size',1,NULL,'Number of pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_diff_pfx01',6,1,'variable'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','n_leaf_pages',1,NULL,'Number of leaf pages in the index'),('sys','sys_config','PRIMARY','2024-08-28 17:57:39','size',1,NULL,'Number of pages in the index');
 /*!40000 ALTER TABLE `innodb_index_stats` ENABLE KEYS */;
 
 --
@@ -360,7 +360,7 @@ INSERT  IGNORE INTO `innodb_index_stats` VALUES ('mysql','component','PRIMARY','
 --
 
 /*!40000 ALTER TABLE `innodb_table_stats` DISABLE KEYS */;
-INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','Admin','2024-11-12 12:35:59',10,1,0),('sweta','CLUB','2025-03-23 11:17:19',10,1,0),('sweta','FITNESS','2025-03-23 10:33:12',6,1,0),('sweta','GYM','2025-03-23 10:28:48',8,1,0),('sweta','LOCATION','2025-03-27 16:19:02',4,1,0),('sweta','OWNEDBY','2025-03-23 07:59:47',5,1,0),('sweta','PRODUCT','2024-12-01 16:14:32',5,1,0),('sweta','RESORT','2025-03-23 07:41:12',12,1,0),('sweta','SALES','2025-03-27 16:16:39',5,1,0),('sweta','SHOP','2025-03-23 07:18:37',6,1,0),('sweta','STORE','2025-03-23 06:57:44',7,1,0),('sweta','STUDENT1','2025-03-23 11:46:20',10,1,0),('sweta','SUPPLIERS','2025-03-23 07:00:49',3,1,0),('sweta','School','2024-11-12 12:35:18',10,1,0),('sweta','Student','2024-11-12 12:12:29',8,1,0),('sweta','employees','2024-11-12 12:28:38',10,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sweta','student','2024-12-01 16:21:19',8,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
+INSERT  IGNORE INTO `innodb_table_stats` VALUES ('mysql','component','2024-08-28 17:57:38',0,1,0),('sweta','ACE','2025-03-27 20:13:27',10,1,0),('sweta','Admin','2024-11-12 12:35:59',10,1,0),('sweta','AgentDetails','2025-03-27 19:07:08',4,1,0),('sweta','CLUB','2025-03-23 11:17:19',10,1,0),('sweta','FITNESS','2025-03-23 10:33:12',6,1,0),('sweta','GYM','2025-03-23 10:28:48',8,1,0),('sweta','ITEM','2025-03-27 19:49:43',4,1,0),('sweta','ITEM_BRAND','2025-03-27 19:49:50',4,1,0),('sweta','KAJAL','2025-03-30 10:03:37',5,1,0),('sweta','LOCATION','2025-03-27 16:19:02',4,1,0),('sweta','OWNEDBY','2025-03-23 07:59:47',5,1,0),('sweta','PRODUCT','2024-12-01 16:14:32',5,1,0),('sweta','RESORT','2025-03-23 07:41:12',12,1,0),('sweta','SALES','2025-03-27 16:16:39',5,1,0),('sweta','SAMS','2025-03-27 19:28:00',5,1,0),('sweta','SHOP','2025-03-23 07:18:37',6,1,0),('sweta','STORE','2025-03-23 06:57:44',7,1,0),('sweta','STUDENT1','2025-03-23 11:46:20',10,1,0),('sweta','SUPPLIERS','2025-03-23 07:00:49',3,1,0),('sweta','SWETA','2025-03-30 05:31:01',5,1,0),('sweta','School','2024-11-12 12:35:18',10,1,0),('sweta','Stream','2025-03-27 20:46:39',5,1,0),('sweta','Student','2024-11-12 12:12:29',8,1,0),('sweta','TICKETDETAILS','2025-03-27 19:03:46',5,1,0),('sweta','VENDOR','2025-03-27 19:29:56',4,1,0),('sweta','employees','2024-11-12 12:28:38',10,1,0),('sweta','marks','2024-10-25 14:06:49',4,1,0),('sweta','student','2024-12-01 16:21:19',8,1,0),('sys','sys_config','2024-08-28 17:57:39',6,1,0);
 /*!40000 ALTER TABLE `innodb_table_stats` ENABLE KEYS */;
 
 --
@@ -1081,6 +1081,30 @@ CREATE DATABASE /*!32312 IF NOT EXISTS*/ `sweta` /*!40100 DEFAULT CHARACTER SET 
 USE `sweta`;
 
 --
+-- Table structure for table `ACE`
+--
+
+DROP TABLE IF EXISTS `ACE`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ACE` (
+  `AdmNo` int DEFAULT NULL,
+  `Name` varchar(100) DEFAULT NULL,
+  `Stcode` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ACE`
+--
+
+LOCK TABLES `ACE` WRITE;
+/*!40000 ALTER TABLE `ACE` DISABLE KEYS */;
+INSERT INTO `ACE` VALUES (1,'John Doe','S01'),(2,'Jane Smith','S02'),(3,'Michael Johnson','S03'),(4,'Emily Davis','S04'),(5,'David Wilson','S05'),(6,'Sarah Brown','S01'),(7,'Chris Taylor','S02'),(8,'Patricia Clark','S03'),(9,'Daniel Lewis','S04'),(10,'Laura Hall','S05');
+/*!40000 ALTER TABLE `ACE` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Admin`
 --
 
@@ -1103,6 +1127,29 @@ LOCK TABLES `Admin` WRITE;
 /*!40000 ALTER TABLE `Admin` DISABLE KEYS */;
 INSERT INTO `Admin` VALUES (1,'Male','Principal'),(2,'Female','Vice-Principal'),(3,'Male','School Secretary'),(4,'Female','Registrar'),(5,'Male','Accountant'),(6,'Female','Admissions Officer'),(7,'Male','IT Coordinator'),(8,'Female','Librarian'),(9,'Male','Sports Coordinator'),(10,'Female','Counselor');
 /*!40000 ALTER TABLE `Admin` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `AgentDetails`
+--
+
+DROP TABLE IF EXISTS `AgentDetails`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `AgentDetails` (
+  `ACode` varchar(10) DEFAULT NULL,
+  `ANAME` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `AgentDetails`
+--
+
+LOCK TABLES `AgentDetails` WRITE;
+/*!40000 ALTER TABLE `AgentDetails` DISABLE KEYS */;
+INSERT INTO `AgentDetails` VALUES ('A01','Mr. Robin'),('A02','Ms. Emma'),('A03','Mr. John'),('A04','Mrs. Sarah');
+/*!40000 ALTER TABLE `AgentDetails` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1184,6 +1231,79 @@ INSERT INTO `GYM` VALUES ('G101','Power Fit Exerciser',20000,'Fit Trend India'),
 UNLOCK TABLES;
 
 --
+-- Table structure for table `ITEM`
+--
+
+DROP TABLE IF EXISTS `ITEM`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ITEM` (
+  `ICode` int DEFAULT NULL,
+  `IName` varchar(100) DEFAULT NULL,
+  `Price` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ITEM`
+--
+
+LOCK TABLES `ITEM` WRITE;
+/*!40000 ALTER TABLE `ITEM` DISABLE KEYS */;
+INSERT INTO `ITEM` VALUES (111,'Refrigerator',90000),(112,'Washing Machine',50000),(113,'Microwave Oven',12000),(114,'Air Conditioner',35000);
+/*!40000 ALTER TABLE `ITEM` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ITEM_BRAND`
+--
+
+DROP TABLE IF EXISTS `ITEM_BRAND`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ITEM_BRAND` (
+  `ICode` int DEFAULT NULL,
+  `BName` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ITEM_BRAND`
+--
+
+LOCK TABLES `ITEM_BRAND` WRITE;
+/*!40000 ALTER TABLE `ITEM_BRAND` DISABLE KEYS */;
+INSERT INTO `ITEM_BRAND` VALUES (111,'LG'),(112,'Samsung'),(113,'Panasonic'),(114,'Daikin');
+/*!40000 ALTER TABLE `ITEM_BRAND` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `KAJAL`
+--
+
+DROP TABLE IF EXISTS `KAJAL`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `KAJAL` (
+  `EID` int DEFAULT NULL,
+  `ENAME` varchar(50) DEFAULT NULL,
+  `DEPT` varchar(50) DEFAULT NULL,
+  `SALARY` decimal(10,2) DEFAULT NULL,
+  `JOIN_DATE` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `KAJAL`
+--
+
+LOCK TABLES `KAJAL` WRITE;
+/*!40000 ALTER TABLE `KAJAL` DISABLE KEYS */;
+INSERT INTO `KAJAL` VALUES (101,'John','HR',50000.00,'2020-01-15'),(102,'Alice','IT',60000.00,'2021-02-20'),(103,'Bob',NULL,55000.00,'2022-06-10'),(104,'Charlie','Finance',70000.00,'2019-07-05'),(105,'Diana','Marketing',45000.00,'2023-03-25');
+/*!40000 ALTER TABLE `KAJAL` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `LOCATION`
 --
 
@@ -1202,7 +1322,7 @@ CREATE TABLE `LOCATION` (
 
 LOCK TABLES `LOCATION` WRITE;
 /*!40000 ALTER TABLE `LOCATION` DISABLE KEYS */;
-INSERT INTO `LOCATION` VALUES (101,'Mumbai'),(102,'Delhi'),(103,'Bangalore'),(104,'Chennai');
+INSERT INTO `LOCATION` VALUES (101,'Mumbai'),(102,'Delhi'),(103,'Bangalore'),(100,'Chennai');
 /*!40000 ALTER TABLE `LOCATION` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1306,6 +1426,32 @@ LOCK TABLES `SALES` WRITE;
 /*!40000 ALTER TABLE `SALES` DISABLE KEYS */;
 INSERT INTO `SALES` VALUES (1,'Rajesh Kumar',150000.75,101),(2,'Priya Sharma',120000.50,102),(3,'Amit Patel',180000.25,103),(4,'Neha Verma',200000.00,104),(5,'Ravi Singh',160000.10,105);
 /*!40000 ALTER TABLE `SALES` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `SAMS`
+--
+
+DROP TABLE IF EXISTS `SAMS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `SAMS` (
+  `ICode` varchar(10) DEFAULT NULL,
+  `IName` varchar(100) DEFAULT NULL,
+  `Price` int DEFAULT NULL,
+  `Colour` varchar(20) DEFAULT NULL,
+  `VCode` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SAMS`
+--
+
+LOCK TABLES `SAMS` WRITE;
+/*!40000 ALTER TABLE `SAMS` DISABLE KEYS */;
+INSERT INTO `SAMS` VALUES ('S001','Refrigerator',20000,'Blue','P01'),('S002','Washing Machine',15000,'White','P02'),('S003','Microwave Oven',8000,'Silver','P03'),('S004','Air Conditioner',30000,'Black','P04'),('S005','Dishwasher',12000,'Gray','P05');
+/*!40000 ALTER TABLE `SAMS` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1416,6 +1562,32 @@ INSERT INTO `SUPPLIERS` VALUES ('A001','Fresh Fruits Inc.'),('B001','Tropical Ba
 UNLOCK TABLES;
 
 --
+-- Table structure for table `SWETA`
+--
+
+DROP TABLE IF EXISTS `SWETA`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `SWETA` (
+  `EID` varchar(10) DEFAULT NULL,
+  `EMP_NAME` varchar(50) DEFAULT NULL,
+  `DEPT` varchar(50) DEFAULT NULL,
+  `SALARY` decimal(10,2) DEFAULT NULL,
+  `JOIN_DATE` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `SWETA`
+--
+
+LOCK TABLES `SWETA` WRITE;
+/*!40000 ALTER TABLE `SWETA` DISABLE KEYS */;
+INSERT INTO `SWETA` VALUES ('E01','PRIYA JAIN','ENGINEERING',85000.00,'2020-08-14'),('E02','RAJESH KUMAR','SALES',55000.00,'2019-04-20'),('E03','ANITA SHARMA','MARKETING',60000.00,'2021-01-10'),('E04','KUNAL MEHRA','HR',45000.00,'2018-06-25'),('E05','MANOJ SINGH','FINANCE',75000.00,'2017-11-30');
+/*!40000 ALTER TABLE `SWETA` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `School`
 --
 
@@ -1444,6 +1616,30 @@ INSERT INTO `School` VALUES (1,'John Doe','Mathematics','1980-05-14',5,10),(2,'J
 UNLOCK TABLES;
 
 --
+-- Table structure for table `Stream`
+--
+
+DROP TABLE IF EXISTS `Stream`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `Stream` (
+  `Stcode` varchar(10) DEFAULT NULL,
+  `Stream` varchar(50) DEFAULT NULL,
+  `TeacherIncharge` varchar(30) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Stream`
+--
+
+LOCK TABLES `Stream` WRITE;
+/*!40000 ALTER TABLE `Stream` DISABLE KEYS */;
+INSERT INTO `Stream` VALUES ('S01','Science','Vinay Ji'),('S02','Commerce','Lala Ji'),('S03','Humanities','Nyla Ji'),('S04','Engineering','Savinra Ji'),('S05','Medical','Prisha Ji');
+/*!40000 ALTER TABLE `Stream` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `Student`
 --
 
@@ -1469,6 +1665,54 @@ LOCK TABLES `Student` WRITE;
 /*!40000 ALTER TABLE `Student` DISABLE KEYS */;
 INSERT INTO `Student` VALUES (1,'Anand','XI','1997-06-06','M','Agra',430),(2,'Chetan','XII','1994-05-07','M','Mumbai',460),(3,'Geet','XI','1997-06-05','F','Agra',470),(4,'Preeti','XII','1995-08-08','F','Mumbai',492),(5,'Saniyal','XII','1995-10-08','M','Delhi',360),(6,'Maakhiy','XI','1994-12-12','F','Dubai',256),(7,'Neha','X','1995-12-08','F','Moscow',324),(8,'Nishant','X','1995-06-12','M','Moscow',429);
 /*!40000 ALTER TABLE `Student` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `TICKETDETAILS`
+--
+
+DROP TABLE IF EXISTS `TICKETDETAILS`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `TICKETDETAILS` (
+  `Tcode` varchar(10) DEFAULT NULL,
+  `NAME` varchar(100) DEFAULT NULL,
+  `Tickets` int DEFAULT NULL,
+  `A_code` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `TICKETDETAILS`
+--
+
+LOCK TABLES `TICKETDETAILS` WRITE;
+/*!40000 ALTER TABLE `TICKETDETAILS` DISABLE KEYS */;
+INSERT INTO `TICKETDETAILS` VALUES ('S001','Meena',7,'A01'),('S002','John',3,'A02'),('S003','Sara',5,'A03'),('S004','Ravi',10,'A04'),('S005','Anita',2,'A05');
+/*!40000 ALTER TABLE `TICKETDETAILS` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `VENDOR`
+--
+
+DROP TABLE IF EXISTS `VENDOR`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `VENDOR` (
+  `VCode` varchar(10) DEFAULT NULL,
+  `VName` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `VENDOR`
+--
+
+LOCK TABLES `VENDOR` WRITE;
+/*!40000 ALTER TABLE `VENDOR` DISABLE KEYS */;
+INSERT INTO `VENDOR` VALUES ('P01','Satish'),('P02','Rahul'),('P03','Priya'),('P04','Kiran');
+/*!40000 ALTER TABLE `VENDOR` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -1563,4 +1807,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-03-27 18:30:04
+-- Dump completed on 2025-04-28 18:30:02
